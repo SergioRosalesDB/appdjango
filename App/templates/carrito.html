@@ -1,0 +1,54 @@
+<div class="alert alert-primary" role="alert">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="row" colspan="8" class="text-center">PRODUCTS SELECTED</th>
+    </tr>
+    <tr>
+      
+      <th scope="col">MatchKey</th>
+      <th scope="col">Source</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Model Number</th>
+      <th scope="col">Product ID</th>
+      <th scope="col">Product title</th>
+      <th scope="col">Product description</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% if request.session.carrito.items %}
+  {% for key, value in request.session.carrito.items %}
+    <tr>
+    
+      <td>{{value.matchkey}}</td>
+      <td>{{value.source}}</td>
+      <td>{{value.brand}}</td>
+      <td>{{value.modelnumber}}</td>
+      <td>{{value.productid}}</td>
+      <td>{{value.producttitle}}</td>
+      <td>{{value.productdescription}}</td>
+      <td>
+       
+        <a href="{% url 'Sub' value.producto_id %}" class="badge btn btn-dark badge-dark">-</a>
+      </td>
+    </tr>
+  {% endfor %}
+  {% else %}
+  <tr>
+      <td colspan="8">
+          <div class="alert alert-danger text-center"> Add Product </div>
+      </td>
+  </tr>
+  {% endif %}
+    
+  </tbody>
+</table>
+<hr>
+</div>
+<div class="row text-center">
+    <div class="col-6"><a href="{% url 'CLS' %}" class="btn btn-danger">Clean</a></div>
+    <div class="col-6"><a href="#" class="btn btn-success">Match</a></div>
+</div>
+
+

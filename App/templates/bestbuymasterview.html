@@ -1,0 +1,554 @@
+
+<div class="modal-dialog modal-dialog-scrollable modal-xl">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="addModalLabel">
+          {% block modal-title %} <span class="text-align-center mt-3 text-pulse"><h3>
+            + DETAILS PRODUCT BEST BUY</h3></span>{% endblock modal-title %}
+    </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  
+      {% csrf_token %}
+        <div class="modal-body">
+        
+            <table class="table table-bordered" id="productmaster" style="text-align: center;">
+              <thead class="table-success" >
+                  <tr>
+                      
+                      
+                      <th>Dates</th>
+                      
+                      
+                  </tr>
+              </thead>
+              <tbody>
+          
+              <tr>
+                 
+                  <td>
+                      <table border="2" bordercolor="#85C1E9" >
+                          <tr>
+                          
+                              <td>accessories: </td>
+                              <td>
+                                  <table border="2" bordercolor="#85C1E9">
+                                      <tr>
+                                          <td>{{ product.array }}</td>
+                                      </tr>
+                                  </table>
+                              </td>
+                              
+                          </tr>
+                          <tr>
+                          <td>addToCartUrl: </td>
+                              <td>
+                                  <table border="2" bordercolor="#85C1E9">
+                                      <tr>
+                                          <td>{{ product.addToCartUrl }}</td>
+                                      </tr>
+                                  </table>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>bestSellingRank: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.bestSellingRank }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>categoryPath: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>0: </td>
+                                              <td>
+                                                  <table border="2" bordercolor="#85C1E9">
+                                                      <tr>
+                                                          <td>id: {{ product.categoryPath.0.id }}</td> 
+                                                       </tr>
+                                                       <tr>
+                                                          <td>name: {{ product.categoryPath.0.name }}</td> 
+                                                       </tr>
+                                                  </table>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td>1: </td>
+                                              <td>
+                                                  <table border="2" bordercolor="#85C1E9">
+                                                      <tr>
+                                                          <td>id: {{ product.categoryPath.1.id }}</td> 
+                                                       </tr>
+                                                       <tr>
+                                                          <td>name: {{ product.categoryPath.1.name }}</td> 
+                                                       </tr>
+                                                  </table>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td>2: </td>
+                                              <td>
+                                                  <table border="2" bordercolor="#85C1E9">
+                                                      <tr>
+                                                          <td>id: {{ product.categoryPath.2.id }}</td> 
+                                                       </tr>
+                                                       <tr>
+                                                          <td>name: {{ product.categoryPath.2.name }}</td> 
+                                                       </tr>
+                                                  </table>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td>3: </td>
+                                              <td>
+                                                  <table border="2" bordercolor="#85C1E9">
+                                                      <tr>
+                                                          <td>id: {{ product.categoryPath.3.id }}</td> 
+                                                       </tr>
+                                                       <tr>
+                                                          <td>name: {{ product.categoryPath.3.name }}</td> 
+                                                       </tr>
+                                                  </table>
+                                              </td>
+                                          </tr>
+                                          
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>color: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.color }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>condition: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.condition }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>customerReviewAverage: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#b7e1e4">
+                                          <tr>
+                                              <td>{{ product.customerReviewAverage }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>customerReviewCount: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#b7e1e4">
+                                          <tr>
+                                              <td>{{ product.customerReviewCount }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>description: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.description }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>details: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>0: </td>
+                                              <td>
+                                                  <table border="2" bordercolor="#85C1E9">
+                                                      <tr>
+                                                          <td>name: {{ product.details.0.name }}</td> 
+                                                       </tr>
+                                                       <tr>
+                                                          <td>value: {{ product.details.0.value }}</td> 
+                                                       </tr>
+                                                       <tr>
+                                                          <td>values: </td>
+                                                          <td>
+                                                              <table border="2" bordercolor="#85C1E9">
+                                                                  <tr>
+                                                                      <td>0: {{ product.details.0.values.0 }}</td> 
+                                                                   </tr>
+                                                              </table>
+                                                          </td> 
+                                                       </tr>
+                                                  </table>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td>1: </td>
+                                              <td>
+                                                  <table border="2" bordercolor="#85C1E9">
+                                                      <tr>
+                                                          <td>name: {{ product.details.1.name }}</td> 
+                                                       </tr>
+                                                       <tr>
+                                                          <td>value: {{ product.details.1.value }}</td> 
+                                                       </tr>
+                                                       <tr>
+                                                          <td>values: </td>
+                                                          <td>
+                                                              <table border="2" bordercolor="#85C1E9">
+                                                                  <tr>
+                                                                      <td>1: {{ product.details.1.values.0 }}</td> 
+                                                                   </tr>
+                                                              </table>
+                                                          </td> 
+                                                       </tr>
+                                                  </table>
+                                              </td>
+                                          </tr>
+                                          
+                                          
+                                          
+                                      
+                                      </table>
+                                   
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>dollarSavings: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.dollarSavings }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>features: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.array }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>freeShipping: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.freeShipping }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>frequentlyPurchasedWith: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.array }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>images: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.array }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>includedItemList: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.array }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>inStoreAvailability: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.inStoreAvailability }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>inStoreAvailabilityText: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.inStoreAvailabilityText }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>longDescription: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.longDescription }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>manufacturer: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.manufacturer }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>mobileUrl: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.mobileUrl }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>modelNumber: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.modelNumber }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>name: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.name }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>onlineAvailability: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.onlineAvailability }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>onlineAvailabilityText: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.onlineAvailabilityText }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>onSale: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.onSale }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>percentSavings: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.percentSavings }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>preowned: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.preowned }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>regularPrice: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.regularPrice }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>relatedProducts: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.array }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>salePrice: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.salePrice }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>shipping: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.array }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>shippingCost: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.shippingCost }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>shortDescription: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.shortDescription }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>sku: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.sku }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>thumbnailImage: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.thumbnailImage }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>type: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.type }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>upc: </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.upc }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                          </tr>
+                          <tr>
+                              <td>url: </td>
+                      
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.url }}</td>
+                                          </tr>
+                                          
+                                      </table>
+                                  </td>
+                          </tr>
+                          
+                         
+                              
+                      </table>
+                                     
+                  </td>
+                  
+                 
+                 
+              </tr>
+            
+               </tbody>
+              
+      
+          </table>
+
+           
+
+        </div>
+    </form>
+    <div class="modal-footer">
+     
+    </div>
+  </div>
+</div>
+
+<script>
+  (function pulse(){
+      $('.text-pulse').fadeOut(1500).fadeIn(1500, pulse);
+  })();
+
+</script>

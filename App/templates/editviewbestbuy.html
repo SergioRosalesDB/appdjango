@@ -1,0 +1,60 @@
+
+<div class="modal-dialog modal-dialog-scrollable modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="addModalLabel">
+          {% block modal-title %} <span class="text-align-center mt-3 text-pulse"><h3>
+            + EDIT NAME PRODUCT</h3></span>{% endblock modal-title %}
+    </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+
+    
+    <form method="POST" action="/editbestbuy">
+      {% csrf_token %}
+        <div class="modal-body">
+        
+
+            <h5><strong>Attribute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values</strong></h5>
+            <br>
+           
+
+            {% block Value-id %} {% endblock Value-id %}
+           
+             
+           
+
+            <div class="input-group mb-3">
+              <p><strong>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <textarea class="form-control" name="name" rows="2" maxlength="500">{% block name %}{{ product.name }}{% endblock name %}</textarea>
+            </div>
+
+            <div class="mt-4" style="width: 100%;">
+              <button type="submit" class="btn btn-secondary mb-3">
+              {% block btn-action %}<i class="fas fa-plus"></i>&nbsp;&nbsp; Save changes {% endblock btn-action %}
+              </button>
+              <button type="reset" class="btn btn-outline-dark mb-3 ms-2" style="width: 50px;" title="Reset">
+                  <i class="fas fa-sync-alt"></i>
+              </button>
+              <button type="button" class="btn-close" style="width: 50px;" data-bs-dismiss="modal" aria-label="Close">
+               
+              </button>
+
+          </div>
+
+  
+
+        </div>
+    </form>
+    <div class="modal-footer">
+     
+    </div>
+  </div>
+</div>
+
+<script>
+  (function pulse(){
+      $('.text-pulse').fadeOut(1500).fadeIn(1500, pulse);
+  })();
+
+</script>

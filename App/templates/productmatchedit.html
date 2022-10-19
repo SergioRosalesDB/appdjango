@@ -1,0 +1,445 @@
+{% extends 'base.html' %}
+
+{% block title %} Product Match Edit {% endblock %}
+
+{% block navbar-content %} 
+<i style="color: yellowgreen;" class="fas fa-user-alt"></i>&nbsp;&nbsp; Match Product
+
+{% endblock navbar-content %}
+
+{% block content %}
+<div class="container">
+    <br>
+
+    
+
+    <div class="row" >
+        <div class="col-lg-12">
+            <div class="card card-info" >
+                <div class="card-header d-lg-flex">
+                    <h3 class="card-title" style="width: 95%;">SEARCH BY FILTERS</h3>
+                    
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" onClick="showminimizar()">
+                            <i class="fas fa-window-minimize"></i>
+                        </button>
+                        &nbsp;&nbsp;
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" onClick="showmaximizar()" >
+                            <i class="fas fa-window-restore" ></i>
+                        </button>
+                        
+                    
+                </div>
+                <div class="card-body"  id="minimizar">
+
+                    <div class="row" >
+                            <div class="col-lg-12 d-lg-flex">
+
+                                <div class="col-lg-4 form-floating mx-1 my-3">
+                                    <input 
+                                        type="text"
+                                        list="category" 
+                                        id="filtrocategory"
+                                        class="form-control"
+                                        placeholder="Category"
+                                        data-index="8">
+                                        <datalist id="category">
+                                            <option value="Refrigerators"></option>
+                                            
+                                         
+                                        </datalist>
+                                    <label for="filtrocategory">Search Category</label>
+                                </div>
+
+                                <div class="col-lg-3 form-floating mx-1 my-3">
+                                    <input 
+                                        type="text"
+                                        list="vendor" 
+                                        id="filtrosku"
+                                        class="form-control"
+                                        placeholder="Search Sku"
+                                        data-index="1">
+                                        <datalist id="vendor">
+                                            <option value="Lowes"></option>
+                                            <option value="Home Depot"></option>
+                                            <option value="Best Buy"></option>
+                                         
+                                        </datalist>
+                                    <label for="filtrosku">Search Source</label>
+                                </div>
+
+                            <div class="col-lg-4 col-lg-3-5 form-floating mx-1 my-3">
+                                <input 
+                                    type="text"
+                                    list="sku" 
+                                    id="type"
+                                    class="form-control"
+                                    placeholder="Search Sku"
+                                    data-index="4">
+                                    <datalist id="sku">
+                                       
+                                     
+                                    </datalist>
+                                <label for="type">Search ProductID</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row" >
+                        <div class="col-lg-12 d-lg-flex">
+
+                        <div class="col-lg-4 form-floating mx-1 my-3">
+                            <input 
+                                type="text" 
+                                id="filtroupc"
+                                class="form-control"
+                                placeholder="Search upc"
+                                data-index="3">
+                            <label for="filtroupc">Search Model Number</label>
+                        </div>
+
+                        <div class="col-lg-3 form-floating mx-1 my-3">
+                            <input 
+                                type="text"
+                                list="brand" 
+                                id="filtromodelnumber"
+                                class="form-control"
+                                placeholder="Search modelnumber"
+                                data-index="2">
+                                <datalist id="brand">
+                                    <option value="Samsung"></option>
+                                    <option value="GE"></option>
+                                 
+                                </datalist>
+                            <label for="filtromodelnumber">Search Brand</label>
+                        </div>
+
+                        <div class="col-lg-4 form-floating mx-1 my-3">
+                            <input 
+                                type="text"
+                                list="brand2" 
+                                id="filtrodescripcion"
+                                class="form-control"
+                                placeholder="Search modelnumber"
+                                data-index="6">
+                                <datalist id="brand2">
+                                    
+                                </datalist>
+                            <label for="filtrodescripcion">Search for description</label>
+                        </div>
+                        &nbsp;&nbsp;&nbsp;
+                        <button type="reset" class="btn btn-outline-dark mb-3 ms-2" id="btnLimpiarBusqueda">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                        
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   <br>
+
+    <table class="table table-bordered" id="tablematchedit" style="text-align: center;">
+        <thead class="table-success" >
+            <tr>
+                <th></th>
+                <th>Source</th>
+                <th>Brand</th>
+                <th>Model Number</th>
+                <th>Productid</th>
+                <th>Product title</th>
+                <th>Product Description</th>
+                <th>Match<br>ID</th>
+                <th>Category<br>description</th>
+            
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% csrf_token %}
+            {% for product in products %}
+                <tr>
+                    <td><a href="{% url 'Add' product.ProductsKey %}"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></a></td>
+                    <td><a href="{% url 'Add' product.ProductsKey %}" style="color:black; text-decoration: none;">{{ product.SourceKey }}</a></td>
+                    <td><a href="{% url 'Add' product.ProductsKey %}" style="color:black; text-decoration: none;">{{ product.Brand }}</a></td>
+                    <td><a href="{% url 'Add' product.ProductsKey %}" style="color:black; text-decoration: none;">{{ product.ModelNumber }}</a></td>
+                    <td><a href="{% url 'Add' product.ProductsKey %}" style="color:black; text-decoration: none;">{{ product.SourcesId }}</a></td>
+                    <td>{{ product.ProductTitle }}</td>
+                    <td>{{ product.ProductDescription }}</td>
+                    <td><a href="{% url 'Add' product.ProductsKey %}" style="color:black; text-decoration: none;">{{ product.matchid }}</a></td>
+                    <td><a href="{% url 'Add' product.ProductsKey %}" style="color:black; text-decoration: none;">{{ product.CategoryKey }}</a></td>
+                    
+    
+                </tr>
+            {% endfor %}
+            {% include 'addproduct.html' %}
+            
+        </tbody>        
+    </table>
+    <br>
+    <div class="col-12">
+        {% include "carrito.html" %}
+    </div>
+       
+</div>
+
+<div class="container">
+    <br>
+
+    
+
+    <div class="row" >
+        <div class="col-lg-12">
+            <div class="card card-info" >
+                <div class="card-header d-lg-flex">
+                    <h3 class="card-title" style="width: 95%;">SEARCH BY FILTERS</h3>
+                    
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" onClick="showminimizar()">
+                            <i class="fas fa-window-minimize"></i>
+                        </button>
+                        &nbsp;&nbsp;
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" onClick="showmaximizar()" >
+                            <i class="fas fa-window-restore" ></i>
+                        </button>
+                        
+                    
+                </div>
+                <div class="card-body"  id="minimizar">
+
+                    <div class="row" >
+                            <div class="col-lg-12 d-lg-flex">
+
+                                <div class="col-lg-4 form-floating mx-1 my-3">
+                                    <input 
+                                        type="text"
+                                        list="category" 
+                                        id="filtrocategory2"
+                                        class="form-control"
+                                        placeholder="Category"
+                                        data-index="9">
+                                        <datalist id="category">
+                                            <option value="Refrigerators"></option>
+                                            
+                                         
+                                        </datalist>
+                                    <label for="filtrocategory2">Search Category</label>
+                                </div>
+
+                                <div class="col-lg-3 form-floating mx-1 my-3">
+                                    <input 
+                                        type="text"
+                                        list="vendor" 
+                                        id="filtrosku2"
+                                        class="form-control"
+                                        placeholder="Search Sku"
+                                        data-index="2">
+                                        <datalist id="vendor">
+                                            <option value="Lowes"></option>
+                                            <option value="Home Depot"></option>
+                                            <option value="Best Buy"></option>
+                                         
+                                        </datalist>
+                                    <label for="filtrosku2">Search Source</label>
+                                </div>
+
+                            <div class="col-lg-4 col-lg-3-5 form-floating mx-1 my-3">
+                                <input 
+                                    type="text"
+                                    list="sku" 
+                                    id="type2"
+                                    class="form-control"
+                                    placeholder="Search Sku"
+                                    data-index="5">
+                                    <datalist id="sku">
+                                       
+                                     
+                                    </datalist>
+                                <label for="type2">Search ProductID</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row" >
+                        <div class="col-lg-12 d-lg-flex">
+
+                        <div class="col-lg-4 form-floating mx-1 my-3">
+                            <input 
+                                type="text" 
+                                id="filtroupc2"
+                                class="form-control"
+                                placeholder="Search upc"
+                                data-index="4">
+                            <label for="filtroupc2">Search Model Number</label>
+                        </div>
+
+                        <div class="col-lg-3 form-floating mx-1 my-3">
+                            <input 
+                                type="text"
+                                list="brand" 
+                                id="filtromodelnumber2"
+                                class="form-control"
+                                placeholder="Search modelnumber"
+                                data-index="3">
+                                <datalist id="brand">
+                                    <option value="Samsung"></option>
+                                    <option value="GE"></option>
+                                 
+                                </datalist>
+                            <label for="filtromodelnumber2">Search Brand</label>
+                        </div>
+
+                        <div class="col-lg-4 form-floating mx-1 my-3">
+                            <input 
+                                type="text"
+                                list="brand2" 
+                                id="filtrodescripcion2"
+                                class="form-control"
+                                placeholder="Search modelnumber"
+                                data-index="7">
+                                <datalist id="brand2">
+                                    
+                                </datalist>
+                            <label for="filtrodescripcion2">Search for description</label>
+                        </div>
+                        &nbsp;&nbsp;&nbsp;
+                        <button type="reset" class="btn btn-outline-dark mb-3 ms-2" id="btnLimpiarBusqueda2">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                        
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   <br>
+
+    <table class="table table-bordered" id="tablematchedit2" style="text-align: center;">
+        <thead class="table-success" >
+            <tr>
+                <th></th>
+                <th>MatchKey</th>
+                <th>Source</th>
+                <th>Brand</th>
+                <th>Model Number</th>
+                <th>Productid</th>
+                <th>Product title</th>
+                <th>Product Description</th>
+                <th>Match<br>ID</th>
+                <th>Category<br>description</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% csrf_token %}
+            {% for product in products %}
+            <tr>
+                <td><a href="{% url 'Add' product.ProductsKey %}"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></a></td>
+                <td>{{ product.ProductsKey }}</td>
+                <td>{{ product.SourceKey }}</td>
+                <td>{{ product.Brand }}</td>
+                <td>{{ product.ModelNumber }}</td>
+                <td>{{ product.SourcesId }}</td>
+                <td>{{ product.ProductTitle }}</td>
+                <td>{{ product.ProductDescription }}</td>
+                <td>{{ product.matchid }}</td>
+                <td>{{ product.CategoryKey }}</td>
+               
+                
+            </tr>
+            {% endfor %}
+            {% include 'addproduct.html' %}
+            
+        </tbody>        
+    </table>
+       
+</div>
+
+
+
+{% for message in messages %}
+    {% if message.tags == 'success' %}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        var m = "{{ message }}";
+        swal("perfect !", m, "success")
+    </script>
+    {% endif %}
+
+{% endfor %}
+
+
+
+<br><br><br><br>
+
+
+<div class="modal fade" id="prodview" role="dialog">
+
+</div>
+
+<div class="modal fade" id="prodview2" role="dialog">
+
+</div>
+
+<script>
+    var boton = document.getElementById('boton');
+    var lista = document.getElementById('lista');
+    var checks = document.querySelectorAll('.valores');
+   
+    boton.addEventListener('click',function(){
+        lista.innerHTML = '';
+        ckecks.forEach((e)=>{
+            if(e.checked == true){
+               var elemento = document.createElement('li');
+               elemento.className = 'list-group-item';
+               elemento.innerHTML = e.value;
+               lista.appendChild(elemento); 
+            }
+        });
+    });
+        
+   </script>
+
+{% block extrajs %}
+<script type="text/javascript">
+    var $ = jQuery.noConflict();
+    function abrir_modal_edicion(url){
+        $('#prodview').load(url, function (){
+            $(this).modal('show');
+        });
+    }
+    function abrir_modal_edicion2(url){
+        $('#prodview2').load(url, function (){
+            $(this).modal('show');
+        });
+    }
+</script>
+
+{% endblock extrajs %}
+
+
+<script>
+    $("#filtrosku").keyup(function(){
+       table.column($(this).data('index')).search(this.value).draw();
+     })
+</script>
+
+<script>
+    function showminimizar(){
+        document.getElementById('minimizar').style.display='none';
+    }
+
+    function showmaximizar(){
+        document.getElementById('minimizar').style.display='block';
+    }
+</script>
+
+
+
+{% endblock content %}

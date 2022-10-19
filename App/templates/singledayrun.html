@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+
+{% block title %} Single day run {% endblock %}
+
+{% block navbar-content %} 
+<i style="color: yellowgreen;" class="fas fa-user-alt"></i>&nbsp;&nbsp; Single day run
+
+{% endblock navbar-content %}
+
+{% block content %}
+<div class="container">
+    <br><br>
+
+    <div class="row" >
+        <div class="col-lg-12">
+            <div class="card card-info" >
+                <div class="card-header d-lg-flex">
+                    <h3 class="card-title" style="width: 95%;"">SEARCH BY FILTERS</h3>
+                    
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" onClick="showminimizar()">
+                            <i class="fas fa-window-minimize"></i>
+                        </button>
+                        &nbsp;&nbsp;
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" onClick="showmaximizar()" >
+                            <i class="fas fa-window-restore" ></i>
+                        </button>
+                        
+                    
+                </div>
+                <div class="card-body"  id="minimizar">
+                    <div class="row" >
+                        
+                            <div class="col-lg-12 d-lg-flex">
+
+                            <div  class="col-lg-5 form-floating mx-1 my-1">
+                                <input 
+                                    type="input"
+                                  
+                                    id="filtrodate"
+                                    class="form-control"
+                                    placeholder="Search date"
+                                    data-index="1">
+                                   
+                                <label for="filtrodate">Search for Date (dd/mm/yyyy)</label>
+                            </div>
+
+                            <div  class="col-lg-5 form-floating mx-1 my-1">
+                                <input 
+                                    type="input"
+                                    list="vendor" 
+                                    id="filtrovendor"
+                                    class="form-control"
+                                    placeholder="Search Vendor"
+                                    data-index="0">
+                                    <datalist id="vendor">
+                                        <option value="Best Buy"></option>
+                                        <option value="Lowes"></option>
+                                        <option value="Home Depot"></option>
+                                    </datalist>
+                                <label for="filtrovendor">Search for Vendor</label>
+                            </div>
+
+                        <!---   
+                            <div style="width: 30%;"  class="form-control mx-1">
+                                <form action="" > 
+                                   
+                                    <select
+                                    id="filtroupc"
+                                    class="form-control"
+                                    placeholder="filtroupc"
+                                    data-index="0"> 
+                                    <option value="1">Best Buy</option> 
+                                    <option value="2">Lowes</option> 
+                                    </select> 
+                                  
+                                    </form>
+                                    <label for="filtroupc">Select Date</label> 
+                            </div>
+
+                            -->
+
+                           
+                    
+                           
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button type="reset" class="btn btn-outline-dark mb-3 ms-2" id="btnLimpiarBusqueda">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </button>
+                       
+
+                            </div>
+
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-bordered" id="tablesingleday" style="text-align: center;">
+        <thead class="table-success">
+            <br>
+            <tr>
+                
+                <th>Vendor Name</th>
+                <th>Run Finish TimeStamp</th>
+                <th>Time to Run</th>
+                <th>Total Items Scrapped</th>
+                <th>New Items Scrapped</th>
+                <th>Updated Items Scrapped</th>
+                <th>Number of Errors</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products7 %}
+        <tr>
+           
+            <td>{{ product.VendorName }}</td>
+            <td>{{ product.Timestamp }}</td>
+            <td>{{ product.TotalTime }}</td>
+            <td>{{ product.TotalItems }}</td>
+            <td>{{ product.NewItems }}</td>
+            <td>{{ product.UpdatedItems }}</td>
+            <td>{{ product.Errors }}</td>
+           
+         
+            
+           
+        </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th style="color: black;">Total</th>
+                <th style="color: black;"></th>
+                <th style="color: black;"></th>
+                <th style="color: black;"></th>
+                <th style="color: black;"></th>
+                <th style="color: black;"></th>
+                <th style="color: black;"></th>
+            </tr>
+        </tfoot>
+        
+
+
+
+    </table>
+
+</div>
+   
+
+<br><br><br><br>
+
+
+<div class="modal fade" id="edicion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+</div>
+
+<style>
+.table thead, .table tfoot{
+    background-color: #0890ca25;
+   
+}
+</style>
+
+{% block extrajs %}
+<script type="text/javascript">
+    var $ = jQuery.noConflict();
+    function abrir_modal_edicion(url){
+        $('#edicion').load(url, function (){
+            $(this).modal('show');
+        });
+    }
+</script>
+
+{% endblock extrajs %}
+
+<script>
+    function showminimizar(){
+        document.getElementById('minimizar').style.display='none';
+    }
+
+    function showmaximizar(){
+        document.getElementById('minimizar').style.display='block';
+    }
+</script>
+
+{% endblock content %}
+

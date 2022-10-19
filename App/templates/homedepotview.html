@@ -1,0 +1,184 @@
+
+<div class="modal-dialog modal-dialog-scrollable modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="addModalLabel">
+          {% block modal-title %} <span class="text-align-center mt-3 text-pulse"><h3>
+            + DETAILS PRODUCT HOME DEPOT</h3></span>{% endblock modal-title %}
+    </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  
+      {% csrf_token %}
+        <div class="modal-body">
+        
+
+            <h5><strong>Attribute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values</strong></h5>
+            <br>
+           
+
+            {% block Value-id %} {% endblock Value-id %}
+             
+           
+            <div class="input-group mb-3">
+                <p><strong>Sku:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+                <input type="text" class="form-control"  maxlength="800" required {% block Value-sku %} value="{{ product.identifiers.storeSkuNumber }}" {% endblock Value-sku %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Upc:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-upc %} value="{{ product.identifiers.upc }}" {% endblock Value-upc %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Model<br>number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-modelnumber %} value="{{ product.identifiers.modelNumber }}" {% endblock Value-modelnumber %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <textarea class="form-control" name="note" rows="2" maxlength="500" readonly>{% block name %}{{  product.identifiers.canonicalUrl }}{% endblock name %}</textarea>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Included<br>items:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <textarea class="form-control" name="note" rows="2" maxlength="500" readonly>{% block includeitems %}{{ product.identifiers.d }}{% endblock includeitems %}</textarea>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Manu<br>facturer:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-manufacturer %} value="{{ product.identifiers.brandName }}" {% endblock Value-manufacturer %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-type %} value="{{ product.identifiers.productType }}" {% endblock Value-type %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Regular<br>price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-regularprice %} value="{{ product.pricing.value }}" {% endblock Value-regularprice %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Sale<br>price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-saleprice %} value="{{ product.pricing.original }}" {% endblock Value-saleprice %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Dollar<br>Savings:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-dollarsavings %} value="{{ product.pricing.promotion.dollarOff }}" {% endblock Value-dollarsavings %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Shipping<br>cost:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-shippingcost %} value="{{ product.shippingCost }}" {% endblock Value-shippingcost %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Description:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <textarea class="form-control" name="note" rows="2" maxlength="500" readonly>{% block description %}{{ product.identifiers.canonicalUrl }}{% endblock description %}</textarea>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Short<br>description:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <textarea class="form-control" name="note" rows="2" maxlength="500" readonly>{% block shortdescription %}{{ product.identifiers.productLabel }}{% endblock shortdescription %}</textarea>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Long<br>Description:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <textarea class="form-control" name="note" rows="4" maxlength="1500" readonly>{% block longdescription %}{{ product.details.description }}{% endblock longdescription %}</textarea>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Features:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <textarea class="form-control" name="note" rows="4" maxlength="1500" readonly>{% block features %}{{ product.seoDescription }}{% endblock features %}</textarea>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Color:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-color %} value="{{ product.badges.0.color }}" {% endblock Value-color %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Condition:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-condition %} value="{{ product.condition }}" {% endblock Value-condition %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Best sellin<br>rank:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-bestsellingrank %} value="{{ product.bestSellingRank }}" {% endblock Value-bestsellingrank %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Customer review<br>average:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-customerreviewaverage %} value="{{ product.reviews.ratingsReviews.averageRating }}" {% endblock Value-customerreviewaverage %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Customer review&nbsp;&nbsp;<br>count:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-customerreviewcount %} value="{{ product.reviews.ratingsReviews.totalReviews }}" {% endblock Value-customerreviewcount %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Free shipping:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-freeshipping %} value="{{ product.freeShipping }}" {% endblock Value-freeshipping %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>In store&nbsp;&nbsp;<br>availability:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-instoreavailability %} value="{{ product.availabilityType.status }}" {% endblock Value-instoreavailability %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>In store&nbsp;&nbsp;<br>availability text:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-instoreavailabilitytext %} value="{{ product.inStoreAvailabilityText }}" {% endblock Value-instoreavailabilitytext %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Online<br>availability:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-onlineavailability %} value="{{ product.onlineAvailability }}" {% endblock Value-onlineavailability %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Online&nbsp;&nbsp;<br>availability text:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-onlineavailabilitytext %} value="{{ product.onlineAvailabilityText }}" {% endblock Value-onlineavailabilitytext %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Onsale:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-onsale %} value="{{ product.availabilityType.buyable }}" {% endblock Value-onsale %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Preowned:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <input type="text" class="form-control"  maxlength="800" required {% block Value-preowned %} value="{{ product.preowned }}" {% endblock Value-preowned %} readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Mobileurl:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <textarea class="form-control" name="note" rows="2" maxlength="500" readonly>{% block mobileurl %}{{ product.details.descriptiveAttributes.10.value }}{% endblock mobileurl %}</textarea>
+            </div>
+
+            <div class="input-group mb-3">
+              <p><strong>Thumb nail&nbsp;&nbsp;<br>image:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+              <textarea class="form-control" name="note" rows="2" maxlength="500" readonly>{% block thumbnailimage %}{{ product.media.images.0.url }}{% endblock thumbnailimage %}</textarea>
+            </div>
+
+           
+
+        </div>
+    </form>
+    <div class="modal-footer">
+     
+    </div>
+  </div>
+</div>
+
+<script>
+  (function pulse(){
+      $('.text-pulse').fadeOut(1500).fadeIn(1500, pulse);
+  })();
+
+</script>

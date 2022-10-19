@@ -1,0 +1,138 @@
+html,
+body {
+    height:100%;
+    margin: 0;
+    max-width: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+#footer,
+.push {
+    height: 50px;
+}
+
+#card-login {
+    width: 450px;
+}
+.login-border {
+    border-top: .4rem solid #3bb7c7;
+    border-bottom: .4rem solid #3bb7c7;
+    border-radius: 10px;
+}
+
+#btn-enter {
+    border-radius: 15px;
+    font-size: 16px;
+    border-color: aqua;
+    background-color: #3bb7c7;
+}
+
+.side-label {
+    width: 45px;
+}
+
+thead input {
+    width: 100%;
+    text-align: center;
+
+}
+
+.action-color {
+    color: transparent;
+}
+
+th:nth-child(8), th:nth-child(9) {
+    border: none;
+}
+
+/*----------------- modals -------------*/
+.btn-modal {
+    width: 60px;
+}
+
+/*----------------- login resposive  -------------*/
+
+@media(max-width: 575px) {
+    #card-login {
+        width: 100%;
+    }
+    #card-enter {
+        font-size: 14px;
+    }
+    #card-lock {
+        font-size: 100%;
+    }
+
+    #card-title {
+        width: 100%;
+    }
+    #card-body {
+        width: 100%;
+    }
+    
+    #container {
+        width: 100%;
+    };
+
+    #dataTables_scrollBody {
+        overflow: block;
+    }
+
+}
+
+.content{
+    height: 400px;
+    width: 720px;
+    overflow: hidden;
+    position: relative;
+}
+
+.content .images{
+    height: 100%;
+    width: 100%;
+}
+.images div{
+    height: 100%;
+    width: 100%;
+}
+.btm-sliders{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    display: flex;
+    transform: translateX(-50%);
+}
+.btm-sliders span{
+    height: 15px;
+    width: 50px;
+    border: 2px solid black;
+    margin: 0 3px;
+    cursor: pointer;
+}
+.btm-sliders span:hover{
+    background: black; 
+}
+.content .slide{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    border: 2px solid black;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+.content .slide:hover{
+    background: rgba(255, 255, 255, 0.2);
+}
+.slide span{
+    font-size: 35px;
+    color: black;
+    line-height: 41px;
+    cursor: pointer;
+}
+.content .right{
+    right: 0;
+}

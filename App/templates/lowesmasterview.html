@@ -1,0 +1,461 @@
+
+<div class="modal-dialog modal-dialog-scrollable modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="addModalLabel">
+          {% block modal-title %} <span class="text-align-center mt-3 text-pulse"><h3>
+            + DETAILS PRODUCT LOWES</h3></span>{% endblock modal-title %}
+    </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  
+    <table class="table table-bordered" id="productmaster" style="text-align: center;">
+      <thead class="table-success" >
+          <tr>
+              
+              
+              <th>Searched</th>
+              <th>Dates</th>
+             
+              
+          </tr>
+      </thead>
+      <tbody>
+      {% for product in lowesproductmaster %}
+      <tr>
+      
+          <td>{{ product.OmniitemId.product.modelId }} <br>
+              {{ product.OmniitemId.product.barcode }}
+          </td>
+          
+                      
+                      <td>
+                          <table border="2" bordercolor="#b7e1e4">
+                              <tr>
+                                  
+                                  <td><strong>product:</strong></td>
+                                  <td>
+                                      <table border="2" bordercolor="#b7e1e4">
+                                          <tr>
+                                              <td><strong>omniItemId:</strong> {{ product.OmniitemId.product.omniItemId }} </td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>additionalBadges:</strong> {{ product.OmniitemId.product.additionalBadges }} </td>
+                                          </tr>
+                                          
+                                          <tr>
+                                              <td><strong>brand:</strong> {{ product.OmniitemId.product.brand }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>barcode:</strong> {{ product.OmniitemId.product.barcode }}</td>
+                                          </tr>
+                                          
+                                          <tr>
+                                              <td><strong>categories:</strong> {{ product.OmniitemId.product.categories.102588 }}</td>
+                                             
+                                          </tr>
+                                          <tr>
+                                              <td><strong>createDate:</strong> {{ product.OmniitemId.product.createdDate }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>description:</strong> {{ product.OmniitemId.product.description }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>energyStar:</strong> {{ product.OmniitemId.product.energyStar }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>endDate:</strong> {{ product.OmniitemId.product.endDate }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>interpackDesc:</strong> {{ product.OmniitemId.product.interpackDesc }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>interPackQty:</strong> {{ product.OmniitemId.product.interPackQty }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>interpackCode:</strong> {{ product.OmniitemId.product.interpackCode }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>itemNumber:</strong> {{ product.OmniitemId.product.itemNumber }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>productStatus:</strong> {{ product.OmniitemId.product.productStatus }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>installAvailInd:</strong> {{ product.OmniitemId.product.installAvailInd }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>lastModifiedDate:</strong> {{ product.OmniitemId.product.lastModifiedDate }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>lastModifiedBy:</strong> {{ product.OmniitemId.product.lastModifiedBy }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>modelId:</strong> {{ product.OmniitemId.product.modelId }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>pdURL:</strong> {{ product.OmniitemId.product.pdURL }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>productTypeCode:</strong> {{ product.OmniitemId.product.productTypeCode }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>rating:</strong> {{ product.OmniitemId.product.rating }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>reviewCount:</strong> {{ product.OmniitemId.product.reviewCount }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>romanceCopy:</strong> {{ product.OmniitemId.product.romanceCopy }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>rollupIndicator:</strong> {{ product.OmniitemId.product.rollupIndicator }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>status:</strong> {{ product.OmniitemId.product.status }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>status:</strong> {{ product.OmniitemId.product.status }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>type:</strong> {{ product.OmniitemId.product.type }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>vendorNumber:</strong> {{ product.OmniitemId.product.vendorNumber }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>vendorDirect:</strong> {{ product.OmniitemId.product.vendorDirect }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>vendorLeadTime:</strong> {{ product.OmniitemId.product.vendorLeadTime }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>weight:</strong> {{ product.OmniitemId.product.weight }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>legacyDescription:</strong> {{ product.OmniitemId.product.legacyDescription }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>itemCubeMeasure:</strong> {{ product.OmniitemId.product.itemCubeMeasure }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>itemHeightMeasure:</strong> {{ product.OmniitemId.product.itemHeightMeasure }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>itemDepthMeasure:</strong> {{ product.OmniitemId.product.itemDepthMeasure }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>itemWidthMeasure:</strong> {{ product.OmniitemId.product.itemWidthMeasure }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>itemWeightMeasure:</strong> {{ product.OmniitemId.product.itemWeightMeasure }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>title:</strong> {{ product.OmniitemId.product.title }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>zippedInExperience:</strong> {{ product.OmniitemId.product.zippedInExperience }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                                  
+                              </tr>
+
+                              <tr>
+                                  <td><strong>location:</strong></td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                             
+                                              <td>
+                                                  
+                                                      <tr>
+                                                          <td><strong>zipcode:</strong> {{ product.OmniitemId.location.zipcode }}</td> 
+                                                      </tr>
+                                                      <tr>
+                                                          <td><strong>storeNumber:</strong> {{ product.OmniitemId.location.storeNumber }}</td> 
+                                                      </tr>
+                                                      <tr>
+                                                          <td><strong>eligibleToPurchase:</strong> {{ product.OmniitemId.location.eligibleToPurchase }}</td> 
+                                                      </tr>
+                                                  
+                                              </td>
+                                          </tr>
+                                         
+                                      </table>
+                                  </td>
+                                 
+                              </tr>
+                              <tr>
+                                  <td><strong>itemInventory:</strong></td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td><strong>requiredQuantity:</strong> {{ product.OmniitemId.itemInventory.requiredQuantity }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>pickupQuantity:</strong> {{ product.OmniitemId.itemInventory.pickupQuantity }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>totalAvailableQty:</strong> {{ product.OmniitemId.itemInventory.totalAvailableQty }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td><strong>price:</strong></td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td><strong>totalPercentage:</strong> {{ product.OmniitemId.price.totalPercentage }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>totalSavings:</strong> {{ product.OmniitemId.price.totalSavings }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>itemSavings:</strong> {{ product.OmniitemId.price.itemSavings }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>saveType:</strong> {{ product.OmniitemId.price.saveType }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>wasPercentage:</strong> {{ product.OmniitemId.price.wasPercentage }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>mapPrice:</strong> {{ product.OmniitemId.price.mapPrice }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>wasPrice:</strong> {{ product.OmniitemId.price.wasPrice }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>itemPrice:</strong> {{ product.OmniitemId.price.itemPrice }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>type:</strong> {{ product.OmniitemId.price.type }}</td>
+                                          </tr>
+                                          
+                                      </table>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td><strong>additionalServices:</strong> </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.OmniitemId.additionalServices }}</td>
+                                              
+                                          </tr>
+                                      </table>
+                                  </td>
+                                 
+                              </tr>
+                              <tr>
+                                  <td><strong>productAssoc:</strong></td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td><strong>ERP=></strong> <strong>omniItemId:</strong> {{ product.OmniitemId.productAssoc.EPP.products.0.omniItemId }}<br>
+                                                                         <strong>sequence:</strong> {{ product.OmniitemId.productAssoc.EPP.products.0.sequence }}<br>
+                                                                         <strong>minPrcAmt:</strong> {{ product.OmniitemId.productAssoc.EPP.products.0.minPrcAmt }}<br>
+                                                                         <strong>maxPrcAmt:</strong> {{ product.OmniitemId.productAssoc.EPP.products.0.maxPrcAmt }}<br>
+                                                                         <strong>pgmCode:</strong> {{ product.OmniitemId.productAssoc.EPP.products.0.pgmCode }}<br>
+                                                                         <strong>locNbr:</strong> {{ product.OmniitemId.productAssoc.EPP.products.0.locNbr }}<br>
+                                                                         <strong>purchaseWithPiece:</strong> {{ product.OmniitemId.productAssoc.EPP.products.0.purchaseWithPiece }}<br>
+                                              
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td><br><strong>HAUL_AWAY=></strong> <strong>omniItemId:</strong> {{ product.OmniitemId.productAssoc.HAUL_AWAY.products.0.omniItemId }}<br>
+                                                                                   <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sequence:</strong> {{ product.OmniitemId.productAssoc.HAUL_AWAY.products.0.sequence }}
+                                          </td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                                 
+                              </tr>
+                             
+                              <tr>
+                                  <td><strong>locator:</strong></td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td><strong>lookupStatus:</strong> {{ product.OmniitemId.locator.lookupStatus }}</td>
+                                          </tr>
+                                          <tr>
+                                              <td><strong>storeProductLocations=>:</strong> <strong>storeId:</strong> {{ product.OmniitemId.locator.storeProductLocations.0.storeId }}<br>
+                                                                                           <strong>productId:</strong> {{ product.OmniitemId.locator.storeProductLocations.0.productId }}
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td><br><strong>productLocation=>:</strong> <strong>aisle:</strong> {{ product.OmniitemId.locator.storeProductLocations.0.productLocation.0.aisle }}<br>
+                                                  <strong>bay:</strong> {{ product.OmniitemId.locator.storeProductLocations.0.productLocation.0.bay }}<br>
+                                                  <strong>level:</strong> {{ product.OmniitemId.locator.storeProductLocations.0.productLocation.0.level }}<br>
+                                          </td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                                 
+                              </tr>
+                              <tr>
+                                  <td><strong>lacPromotions:</strong> </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td><strong>promoId:</strong> {{ product.OmniitemId.lacPromotions.0.promoId }}<br>
+                                              <strong>promoType:</strong> {{ product.OmniitemId.lacPromotions.0.promoType }}<br>
+                                              <strong>promoName:</strong> {{ product.OmniitemId.lacPromotions.0.promoName }}<br>
+                                              <strong>displayPromoMsg:</strong> {{ product.OmniitemId.lacPromotions.0.displayPromoMsg }}<br>
+                                              <strong>displayPriority:</strong> {{ product.OmniitemId.lacPromotions.0.displayPriority }}<br>
+                                              <strong>promoGroupCode:</strong> {{ product.OmniitemId.lacPromotions.0.promoGroupCode }}<br>
+                                              <strong>startDateTime:</strong> {{ product.OmniitemId.lacPromotions.0.startDateTime }}<br>
+                                              <strong>endDateTime:</strong> {{ product.OmniitemId.lacPromotions.0.endDateTime }}<br>
+                                              <strong>financeTermType:</strong> {{ product.OmniitemId.lacPromotions.0.financeTermType }}<br>
+                                              <strong>financeTermId:</strong> {{ product.OmniitemId.lacPromotions.0.financeTermId }}<br>
+                                              <strong>financeTypeId:</strong> {{ product.OmniitemId.lacPromotions.0.financeTypeId }}<br>
+                                              <strong>financeThresholdAmount:</strong> {{ product.OmniitemId.lacPromotions.0.financeThresholdAmount }}<br>
+                                              <strong>financeMonths:</strong> {{ product.OmniitemId.lacPromotions.0.financeMonths }}<br>
+                                              <strong>financePromoPercent:</strong> {{ product.OmniitemId.lacPromotions.0.financePromoPercent }}<br>
+                                              <strong>financeAnualPercentRate:</strong> {{ product.OmniitemId.lacPromotions.0.financeAnualPercentRate }}<br>
+                                              <strong>financePrice:</strong> {{ product.OmniitemId.lacPromotions.0.financePrice }}<br>
+                                              <strong>bannerName:</strong> {{ product.OmniitemId.lacPromotions.0.bannerName }}<br>
+                                              <strong>pricePerMonth:</strong> {{ product.OmniitemId.lacPromotions.0.pricePerMonth }}<br>
+                                              </td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td><strong>offerPromotions:</strong></td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td><strong>promoId:</strong> {{ product.OmniitemId.offerPromotions.promoId }}<br>
+                                              <strong>promoType:</strong> {{ product.OmniitemId.offerPromotions.promoType }}<br>
+                                              <strong>promoName:</strong> {{ product.OmniitemId.offerPromotions.promoName }}<br>
+                                              <strong>displayPromoMsg:</strong> {{ product.OmniitemId.offerPromotions.displayPromoMsg }}<br>
+                                              <strong>displayPriority:</strong> {{ product.OmniitemId.offerPromotions.0.displayPriority }}<br>
+                                              <strong>promoGroupCode:</strong> {{ product.OmniitemId.offerPromotions.promoGroupCode }}<br>
+                                              <strong>startDateTime:</strong> {{ product.OmniitemId.offerPromotions.startDateTime }}<br>
+                                              <strong>endDateTime:</strong> {{ product.OmniitemId.offerPromotions.endDateTime }}<br>
+                                              <strong>custViewableDescLong:</strong> {{ product.OmniitemId.offerPromotions.custViewableDescLong }}<br>
+                                              <strong>percentOff:</strong> {{ product.OmniitemId.offerPromotions.percentOff }}<br>
+                                              <strong>offerPrice:</strong> {{ product.OmniitemId.offerPromotions.offerPrice }}<br>
+                                              <strong>bannerName:</strong> {{ product.OmniitemId.offerPromotions.bannerName }}
+                                              </td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                                 
+                              </tr>
+                              <tr>
+                                  <td><strong>financeTermId:</strong> </td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td>{{ product.OmniitemId.financeTermId }}</td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td><strong>mfePrice:</strong></td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td><strong>price=> </strong> <strong>currency: </strong>{{ product.OmniitemId.mfePrice.price.currency }}<br>
+                                                                            <strong>finalPriceForUi: </strong>{{ product.OmniitemId.mfePrice.price.finalPriceForUi }}<br>
+                                                                            <strong>finalPriceCentForUi: </strong>{{ product.OmniitemId.mfePrice.price.finalPriceCentForUi }}<br>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td><br><strong>savings=> </strong> <strong>isSavingMessageDisplay: </strong>{{ product.OmniitemId.mfePrice.price.savings.isSavingMessageDisplay }}<br>
+                                                  <strong>basePrice: </strong>{{ product.OmniitemId.mfePrice.price.savings.basePrice }}<br>
+                                                  <strong>totalSaving: </strong>{{ product.OmniitemId.mfePrice.price.savings.totalSaving }}<br>
+                                                  <strong>endDate: </strong>{{ product.OmniitemId.mfePrice.price.savings.endDate }}
+                                          </td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                                 
+                              </tr>
+                              <tr>
+                                  <td><strong>LACOFferPromotion:</strong></td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td><strong>promoId:</strong> {{ product.OmniitemId.LACOfferPromotion.promoId }}<br>
+                                              <strong>promoType:</strong> {{ product.OmniitemId.LACOfferPromotion.promoType }}<br>
+                                              <strong>promoName:</strong> {{ product.OmniitemId.LACOfferPromotion.promoName }}<br>
+                                              <strong>displayPromoMsg:</strong> {{ product.OmniitemId.LACOfferPromotion.displayPromoMsg }}<br>
+                                              <strong>displayPriority:</strong> {{ product.OmniitemId.LACOfferPromotion.0.displayPriority }}<br>
+                                              <strong>promoGroupCode:</strong> {{ product.OmniitemId.LACOfferPromotion.promoGroupCode }}<br>
+                                              <strong>startDateTime:</strong> {{ product.OmniitemId.LACOfferPromotion.startDateTime }}<br>
+                                              <strong>endDateTime:</strong> {{ product.OmniitemId.LACOfferPromotion.endDateTime }}<br>
+                                              <strong>custViewableDescLong:</strong> {{ product.OmniitemId.LACOfferPromotion.custViewableDescLong }}<br>
+                                              <strong>percentOff:</strong> {{ product.OmniitemId.LACOfferPromotion.percentOff }}<br>
+                                              <strong>offerPrice:</strong> {{ product.OmniitemId.LACOfferPromotion.offerPrice }}<br>
+                                              <strong>bannerName:</strong> {{ product.OmniitemId.LACOfferPromotion.bannerName }}
+                                              </td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                                 
+                              </tr>
+                              <tr>
+                                  <td><strong>LACPreAprovalPromotion:</strong></td>
+                                  <td>
+                                      <table border="2" bordercolor="#85C1E9">
+                                          <tr>
+                                              <td><strong>promoId:</strong> {{ product.OmniitemId.LACPreApprovalPromotion.promoId }}<br>
+                                              <strong>promoType:</strong> {{ product.OmniitemId.LACPreApprovalPromotion.promoType }}<br>
+                                              <strong>promoName:</strong> {{ product.OmniitemId.LACPreApprovalPromotion.promoName }}<br>
+                                              <strong>displayPromoMsg:</strong> {{ product.OmniitemId.LACPreApprovalPromotion.displayPromoMsg }}<br>
+                                              <strong>displayPriority:</strong> {{ product.OmniitemId.LACPreApprovalPromotion.0.displayPriority }}<br>
+                                              <strong>promoGroupCode:</strong> {{ product.OmniitemId.LACPreApprovalPromotion.promoGroupCode }}<br>
+                                              <strong>startDateTime:</strong> {{ product.OmniitemId.LACPreApprovalPromotion.startDateTime }}<br>
+                                              <strong>endDateTime:</strong> {{ product.OmniitemId.LACPreApprovalPromotion.endDateTime }}<br>
+                                              <strong>financeTermType:</strong> {{ product.OmniitemId.LACPreApprovalPromotion.financeTermType }}<br>
+                                              <strong>financeTermId:</strong> {{ product.OmniitemId.LACPreApprovalPromotion.financeTermId }}<br>
+                                              <strong>financeTypeId:</strong> {{ product.OmniitemId.LACPreApprovalPromotion.financeTypeId }}<br>
+                                              <strong>financeThresholdAmount:</strong> {{ product.OmniitemId.LACPreApprovalPromotion.financeThresholdAmount }}<br>
+                                              <strong>financeMonths:</strong> {{ product.OmniitemId.LACPreApprovalPromotion.financeMonths }}<br>
+                                              <strong>financePromoPercent:</strong> {{ product.OmniitemId.LACPreApprovalPromotion.financePromoPercent }}<br>
+                                              <strong>financeAnualPercentRate:</strong> {{ product.OmniitemId.LACPreApprovalPromotion.financeAnualPercentRate }}<br>
+                                              <strong>financePrice:</strong> {{ product.OmniitemId.LACPreApprovalPromotion.financePrice }}<br>
+                                              <strong>bannerName:</strong> {{ product.OmniitemId.LACPreApprovalPromotion.bannerName }}<br>
+                                              <strong>pricePerMonth:</strong> {{ product.OmniitemId.LACPreApprovalPromotion.bannerName }}<br>
+                                              </td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                                 
+                              </tr>
+                          </table>
+                      </td>
+                 
+          
+          
+             
+         
+          
+          
+         
+         
+      </tr>
+      {% endfor %}
+       </tbody>
+      
+
+  </table>
+    <div class="modal-footer">
+     
+    </div>
+  </div>
+</div>
+
+<script>
+  (function pulse(){
+      $('.text-pulse').fadeOut(1500).fadeIn(1500, pulse);
+  })();
+
+</script>

@@ -1,0 +1,277 @@
+{% extends 'base.html' %}
+
+{% block title %} Delete unmachat {% endblock %}
+
+{% block navbar-content %} 
+<i style="color: yellowgreen;" class="fas fa-user-alt"></i>&nbsp;&nbsp; Delete unmachat
+
+{% endblock navbar-content %}
+
+{% block content %}
+<div class="container">
+    <br>
+
+    
+
+    
+
+    <br>
+
+
+    <div class="row" >
+        <div class="col-lg-12">
+            <div class="card card-info" >
+                <div class="card-header d-lg-flex">
+                    <h3 class="card-title" style="width: 95%;">SEARCH BY FILTERS</h3>
+                    
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" onClick="showminimizar()">
+                            <i class="fas fa-window-minimize"></i>
+                        </button>
+                        &nbsp;&nbsp;
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" onClick="showmaximizar()" >
+                            <i class="fas fa-window-restore" ></i>
+                        </button>
+                        
+                    
+                </div>
+                <div class="card-body"  id="minimizar">
+                    <div class="row" >
+                        
+                            <div class="col-lg-12 d-lg-flex">
+
+                            <div class="col-lg-3 col-lg-3-5 form-floating mx-1 my-3">
+                                <input 
+                                    type="text"
+                                    list="sku" 
+                                    id="filtrosku"
+                                    class="form-control"
+                                    placeholder="Search Sku"
+                                    data-index="0">
+                                    <datalist id="sku">
+                                        <option value="Refrigorators"></option>
+                                     
+                                    </datalist>
+                                <label for="filtrosku">Search Category</label>
+                            </div>
+
+                        
+                            <div class="col-lg-3 form-floating mx-1 my-3">
+                                <input 
+                                    type="text" 
+                                    id="filtroupc"
+                                    class="form-control"
+                                    placeholder="Search upc"
+                                    data-index="2">
+                                <label for="filtroupc">Search Model Number</label>
+                            </div>
+
+                            <div class="col-lg-3 form-floating mx-1 my-3">
+                                <input 
+                                    type="text"
+                                    list="brand" 
+                                    id="filtromodelnumber"
+                                    class="form-control"
+                                    placeholder="Search modelnumber"
+                                    data-index="3">
+                                    <datalist id="brand">
+                                        <option value="Samsung"></option>
+                                        <option value="GE"></option>
+                                     
+                                    </datalist>
+                                <label for="filtromodelnumber">Search Brand</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                            <div class="row" >
+                        
+                                <div class="col-lg-12 d-lg-flex">
+    
+                             
+                                <div  class="col-lg-3 form-floating mx-1 my-3">
+                               
+                                    <input 
+                                        type="text" 
+                                        list="date"
+                                        id="filtroname"
+                                        class="form-control"
+                                        placeholder="Search name"
+                                        data-index="4">
+                                        <datalist id="date">
+                                            <option value="NULL"></option>
+                                            
+                                         
+                                        </datalist>
+                                    <label for="filtroname">Search Source</label>
+                                </div>
+    
+                                <div class="col-lg-3 form-floating mx-1 my-3">
+                                        <input 
+                                            type="text"
+                                            list="match" 
+                                            id="type"
+                                            class="form-control"
+                                            placeholder="Search Type"
+                                            data-index="5">
+                                            <datalist id="match">
+                                               
+                                             
+                                            </datalist>
+                                        <label for="type">Search ProductId</label>
+                                    </div>
+    
+                                   
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <button type="reset" class="btn btn-outline-dark mb-3 ms-2" id="btnLimpiarBusqueda">
+                                            <i class="fas fa-sync-alt"></i>
+                                        </button>
+                           
+                                
+                                </div>
+
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    
+      <nav class="navbar navbar-light" style="background-color: #e9f5f993;">
+        <form class="container-fluid justify-content-center">
+          <a class="btn btn-outline-dark col-lg-3" href="{% url 'productview' %}">Product match edit</a>
+          <a class="btn btn-outline-dark col-lg-3" href="{% url 'deletematch' %}">Unmaches</a>
+        </form>
+      </nav>
+    
+    <br>
+    <button type="submit"  id="btnmatchunmach" class="btn btn-success col-lg-3 mb-3 mx-5">
+        <i class="fa fa-plus"></i> Match
+    </button>
+
+    <button type="submit" id="btnunmatchunmatch" class="btn btn-secondary col-lg-3 mb-3">
+        <i class="fa fa-minus"></i> Unmatch
+    </button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit" id="btnreturnunmaches" class="btn btn-primary col-lg-3 mb-3 mx-5 float-right">
+        <i class="fa fa-paper-plane"></i> Return
+    </button>
+    
+    
+   
+<br>
+   
+
+
+    <table class="table table-bordered" id="tableprodimport" style="text-align: center;">
+        <thead class="table-success" >
+            <tr id="{{ product.id }}">
+                <th></th>
+                <th>Categorydescription</th>
+                <th>MatchID</th>
+                <th>Model Number</th>
+                <th>Brand</th>
+                <th>Source</th>
+                <th>Productid</th>
+                <th>Product Des</th>
+                <th>Matchtypedescr</th>
+                <th>Deleted</th>
+                <th>Add to match</th>
+                <th>Date unmach</th>
+                
+                
+            </tr> 
+        </thead>
+        <tbody>
+            {% csrf_token %}
+            {% for product in products %}
+        <tr>
+            
+            <td><input type="checkbox" name="product_id[]" value="{{ product.id }}" id="delete_product"></td>
+            <td>{{ product.categorydescr }}</td>
+                    <td>{{ product.matchid }}</td>
+                    <td>{{ product.modelnumber }}</td>
+                    <td>{{ product.brand }}</td>
+                    <td>{{ product.source }}</td>
+                    <td>{{ product.productid }}</td>
+                    <td>{{ product.productdescription }}</td>
+                    <td>{{ product.matchtypedescr }}</td>
+                    <td>{{ product.deleted }}</td>
+                    <td>{{ product.addtomatch }}</td>
+                    <td>{{ product.date }}</td>
+                    
+            
+        
+        </tr>
+        {% endfor %}
+        {% include 'add.html' %}
+         </tbody>
+        
+
+    </table>
+    
+   
+
+</div>
+
+{% for message in messages %}
+    {% if message.tags == 'success' %}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        var m = "{{ message }}";
+        swal("perfect !", m, "success")
+    </script>
+    {% endif %}
+
+{% endfor %}
+
+<br><br><br><br>
+
+
+<div class="modal fade" id="prodview" role="dialog">
+
+</div>
+
+<div class="modal fade" id="prodview2" role="dialog">
+
+</div>
+
+{% block extrajs %}
+<script type="text/javascript">
+    var $ = jQuery.noConflict();
+    function abrir_modal_edicion(url){
+        $('#prodview').load(url, function (){
+            $(this).modal('show');
+        });
+    }
+    function abrir_modal_edicion2(url){
+        $('#prodview2').load(url, function (){
+            $(this).modal('show');
+        });
+    }
+</script>
+
+{% endblock extrajs %}
+
+
+<script>
+    $("#filtrosku").keyup(function(){
+       table.column($(this).data('index')).search(this.value).draw();
+     })
+</script>
+
+<script>
+    function showminimizar(){
+        document.getElementById('minimizar').style.display='none';
+    }
+
+    function showmaximizar(){
+        document.getElementById('minimizar').style.display='block';
+    }
+</script>
+
+
+
+{% endblock content %}

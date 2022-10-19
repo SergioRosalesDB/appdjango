@@ -1,0 +1,1957 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Frontend {% endblock title %}</title>
+    <link href={% static "img/favicon.ico" %} rel="shortcut icon">
+    <link href={% static "img/logo.ico" %} rel="shortcut icon">
+  
+
+    <!-- CSS only -->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/datatables.min.css"/>
+    
+    <link href={% static "css/style.css" %} rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/datatables.min.css"/>
+    
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link href="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css">
+    
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+   
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+
+ 
+
+    <title> </title>
+</head>
+<body>
+  
+    <div class="wrapper">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+                
+                <div class="col-sm">
+                    <a class="navbar-brand flex-grow-1" style="text-align: center; color: #fff; margin-left: 25px;">
+                      {% block navbar-content %}{% endblock navbar-content %}
+                    </a>
+                
+                </div>
+                {% block nav-btn %}
+                <div class="d-flex" style="margin-right: 25px;">
+                    <div class="input-group input-group-sm">
+                      <a style="color: white;" class="nav-item nav-link active" href="{% url 'home' %}">Welcome </a>
+                     
+                      <a style="color: white;" class="nav-item nav-link active" href="{% url 'bestbuy' %}">Vendors  </a>
+                      <a style="color: white;" class="nav-item nav-link active" href="{% url 'bestbuymaster' %}">Product Master  </a>
+                     
+                     
+                      <a style="color: white;" class="nav-item nav-link active" href="{% url 'singledayrun' %}">Single Day Run  </a>
+                      <a style="color: white;" class="nav-item nav-link active" href="{% url 'multidayrun' %}">Multi Day Run  </a>
+                      <a style="color: white;" class="nav-item nav-link active" href="{% url 'productlist' %}">Product list  </a>
+                      <a style="color: white;" class="nav-item nav-link active" href="{% url 'productview' %}">Product Match  </a>
+                      <a style="color: white;" class="nav-item nav-link active" href="{% url 'productunmachview' %}">Unmached  </a>
+                      
+                      <a style="color: white;" class="nav-item nav-link active" href="{% url 'about' %}">About Us</a>
+                       
+                        <a href="/logout" class="btn btn-danger btn-sm" style="margin-left: 25px; border-radius: 50%;" title="Logout" data-bs-targer="#logoutModal">
+                          <i class="fa fa-power-off"></i>
+                        </a>
+                    </div>
+                </div>
+                {% endblock nav-btn %}
+
+
+            </nav>
+        </header>
+
+    {% block content %} {% endblock content %}
+
+
+    {% include 'modals/logout.html' %}
+    
+
+    </div>
+
+    <footer class="bg-dark text-center text-lg-start" id="footer" style="color: #fff;">
+        <div class="text-center p-3" style="background-color: rgba(0,0,0,0.2);">&copy; {% now "Y" %} Copyright:
+            <a class="text-light" href="#" style="text-decoration: none;">
+                <span style="color: greenyellow;">DataBuddies</span>
+
+            </a>
+        </div>
+    </footer>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
+    <!-- Datatable -->
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"></script>
+    <script src="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/datatables.min.js"></script>
+    
+   
+    
+    <script src="https://cdn.datatables.net/select/1.4.0/js/dataTables.select.min.js"></script>
+
+    
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        
+    <!--  Datatables JS-->
+
+     
+    <!-- SUM()  Datatables-->
+    <script src="https://cdn.datatables.net/plug-ins/1.12.1/api/sum().js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  
+
+    
+   
+
+    {% block extrajs %}
+    {% endblock extrajs %}
+    
+
+
+
+    <script>
+
+    var start_date;
+    var end_date;
+    var DateFilterFunction = (function (oSettings, aData, iDataIndex) {
+    var dateStart = parseDateValue(start_date);
+    var dateEnd = parseDateValue(end_date);
+    //The date column we will be using is in sequence 2, as it counts starting at 0
+    //first name = 0
+    //last name = 1
+    var evalDate= parseDateValue(aData[1]);
+    if ( ( isNaN( dateStart ) && isNaN( dateEnd ) ) ||
+      ( isNaN( dateStart ) && evalDate <= dateEnd ) ||
+      ( dateStart <= evalDate && isNaN( dateEnd ) ) ||
+      ( dateStart <= evalDate && evalDate <= dateEnd ) )
+    {
+      return true;
+    }
+    return false;
+  });
+
+  function parseDateValue(rawDate) {
+      var dateArray= rawDate.split("/");
+      var parsedDate= new Date(dateArray[2], parseInt(dateArray[1])-1, dateArray[0]);  // -1 because months are from 0 to 11
+      return parsedDate;
+    }  
+
+      $(document).ready(function() {
+            
+        var table = $('#tabledate').DataTable({
+          "ajax": "/json",
+          "columns": [
+            {"data": "VendorName"},
+            {"data": "Timestamp"},
+            {"data": "TotalTime"},
+            {"data": "TotalItems"},
+            {"data": "NewItems"},
+            {"data": "UpdatedItems"},
+            {"data": "Errors"},
+          ],
+          paging: true,
+          pageLength: 10,
+          lengthChange: true,
+          autoWidth: true,
+          searching: true,
+          bInfo: true,
+          bSort: true,
+          responsive: true,
+          scrollX: true,
+          "dom": "<'row'<'col-sm-4'l><'col-sm-5' <'datesearchbox'>><'col-sm-3'f>>" +
+        "<'row'<'col-sm-12'tr>>" +
+        "<'row'<'col-sm-5'i><'col-sm-7'p>>"
+          
+        });
+        const tableData=getTableData(table);
+        createHighCharts(tableData);
+        setTableEvents(table);
+
+        const tableData2=getTableData2(table);
+        createHighCharts2(tableData2);
+
+        const tableData3=getTableData3(table);
+        createHighCharts3(tableData3);
+
+        const tableData4=getTableData4(table);
+        createHighCharts4(tableData4);
+
+        const tableData5=getTableData5(table);
+        createHighCharts5(tableData5);
+
+
+        const tableData10=getTableData(table);
+        createHighCharts(tableData);
+        setTableEvents(table);
+
+        const tableData20=getTableData2(table);
+        createHighCharts2(tableData2);
+
+        const tableData30=getTableData3(table);
+        createHighCharts3(tableData3);
+
+        const tableData40=getTableData4(table);
+        createHighCharts4(tableData4);
+
+        const tableData50=getTableData5(table);
+        createHighCharts5(tableData5);
+
+        //add daterangepicker inside the datatables
+     $("div.datesearchbox").html('<div class="input-group"> <div class="input-group-addon"> <i class="glyphicon glyphicon-calendar"></i> </div><input type="text" class="form-control pull-right" id="datesearch" placeholder="Search by date range.."> </div>');
+  
+  document.getElementsByClassName("datesearchbox")[0].style.textAlign = "right";
+
+  //Daterangepicker configuration on input with ID Datesearch
+  $('#datesearch').daterangepicker({
+     autoUpdateInput: false
+   });
+
+  //handle the process when applying to the date range
+   $('#datesearch').on('apply.daterangepicker', function(ev, picker) {
+      $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
+      start_date=picker.startDate.format('DD/MM/YYYY');
+      end_date=picker.endDate.format('DD/MM/YYYY');
+      $.fn.dataTableExt.afnFiltering.push(DateFilterFunction);
+      table.draw();
+   });
+
+   $('#datesearch').on('cancel.daterangepicker', function(ev, picker) {
+     $(this).val('');
+     start_date='';
+     end_date='';
+     $.fn.dataTable.ext.search.splice($.fn.dataTable.ext.search.indexOf(DateFilterFunction, 1));
+     table.draw();
+   });
+        
+       
+      });
+
+      function getTableData(table){
+        const dataArray=[],
+        Timestamp=[],
+        TotalItems=[];
+        table.rows({search:"applied"}).every(function(){
+            const data=this.data();
+            Timestamp.push(data['Timestamp']);
+            TotalItems.push(data['TotalItems']);
+      });
+
+      dataArray.push(Timestamp,TotalItems);
+      return dataArray;
+
+      }
+
+      function getTableData2(table){
+        const dataArray2=[],
+        Timestamp=[],
+        NewItems=[];
+        table.rows({search:"applied"}).every(function(){
+            const data2=this.data();
+            Timestamp.push(data2['Timestamp']);
+            NewItems.push(data2['NewItems']);
+      });
+
+      dataArray2.push(Timestamp,NewItems);
+      return dataArray2;
+
+      }
+
+      function getTableData3(table){
+        const dataArray3=[],
+        Timestamp=[],
+        UpdatedItems=[];
+        table.rows({search:"applied"}).every(function(){
+            const data3=this.data();
+            Timestamp.push(data3['Timestamp']);
+            UpdatedItems.push(data3['UpdatedItems']);
+      });
+
+      dataArray3.push(Timestamp,UpdatedItems);
+      return dataArray3;
+
+      }
+
+      function getTableData4(table){
+        const dataArray4=[],
+        Timestamp=[],
+        Errors=[];
+        table.rows({search:"applied"}).every(function(){
+            const data4=this.data();
+            Timestamp.push(data4['Timestamp']);
+            Errors.push(data4['Errors']);
+      });
+
+      dataArray4.push(Timestamp,Errors);
+      return dataArray4;
+
+      }
+
+      function getTableData5(table){
+        const dataArray5=[],
+        Timestamp=[],
+        TotalTime=[];
+        table.rows({search:"applied"}).every(function(){
+            const data5=this.data();
+            Timestamp.push(data5['Timestamp']);
+            TotalTime.push(data5['TotalTime']);
+      });
+
+      dataArray5.push(Timestamp,TotalTime);
+      return dataArray5;
+
+      }
+
+      function getTableData10(table){
+        const dataArray=[],
+        Timestamp=[],
+        TotalItems=[];
+        table.rows({search:"applied"}).every(function(){
+            const data=this.data();
+            Timestamp.push(data['Timestamp']);
+            TotalItems.push(data['TotalItems']);
+      });
+
+      dataArray.push(Timestamp,TotalItems);
+      return dataArray;
+
+      }
+
+      function getTableData20(table){
+        const dataArray2=[],
+        Timestamp=[],
+        NewItems=[];
+        table.rows({search:"applied"}).every(function(){
+            const data2=this.data();
+            Timestamp.push(data2['Timestamp']);
+            NewItems.push(data2['NewItems']);
+      });
+
+      dataArray2.push(Timestamp,NewItems);
+      return dataArray2;
+
+      }
+
+      function getTableData30(table){
+        const dataArray3=[],
+        Timestamp=[],
+        UpdatedItems=[];
+        table.rows({search:"applied"}).every(function(){
+            const data3=this.data();
+            Timestamp.push(data3['Timestamp']);
+            UpdatedItems.push(data3['UpdatedItems']);
+      });
+
+      dataArray3.push(Timestamp,UpdatedItems);
+      return dataArray3;
+
+      }
+
+      function getTableData40(table){
+        const dataArray4=[],
+        Timestamp=[],
+        Errors=[];
+        table.rows({search:"applied"}).every(function(){
+            const data4=this.data();
+            Timestamp.push(data4['Timestamp']);
+            Errors.push(data4['Errors']);
+      });
+
+      dataArray4.push(Timestamp,Errors);
+      return dataArray4;
+
+      }
+
+      function getTableData50(table){
+        const dataArray5=[],
+        Timestamp=[],
+        TotalTime=[];
+        table.rows({search:"applied"}).every(function(){
+            const data5=this.data();
+            Timestamp.push(data5['Timestamp']);
+            TotalTime.push(data5['TotalTime']);
+      });
+
+      dataArray5.push(Timestamp,TotalTime);
+      return dataArray5;
+
+      }
+
+    function createHighCharts(data){
+      Highcharts.chart("chart",{
+        title:{
+          text: "Total Items Scrapped"
+        },
+        
+        xAxis:[
+          {
+            categories:data[0],
+            labels:{
+              rotation: -45
+            }
+          }
+        ],
+        yAxis:[
+          {
+            title:{
+              text: "Total"
+            }
+          }
+        ],
+        series:[
+          {
+            name: "Items",
+            color: "#0071A7",
+            type:"column",
+            data:data[1]
+          }
+          ],
+          credits:{
+            enabled:false
+          }
+      });
+    }
+
+    function createHighCharts2(data){
+      Highcharts.chart("chart2",{
+        title:{
+          text: "New Items Scrapped"
+        },
+        xAxis:[
+          {
+            categories:data[0],
+            labels:{
+              rotation: -45
+            }
+          }
+        ],
+        yAxis:[
+          {
+            title:{
+              text: "Total"
+            }
+          }
+        ],
+        series:[
+          {
+            name: "Items",
+            color: "#29c0b1",
+            type:"column",
+            data:data[1]
+          }
+          ],
+          credits:{
+            enabled:false
+          }
+      });
+    }
+
+    function createHighCharts3(data){
+      Highcharts.chart("chart3",{
+        title:{
+          text: "Updated Items Scrapped"
+        },
+        
+        xAxis:[
+          {
+            categories:data[0],
+            labels:{
+              rotation: -45
+            }
+          }
+        ],
+        yAxis:[
+          {
+            title:{
+              text: "Total"
+            }
+          }
+        ],
+        series:[
+          {
+            name: "Items",
+            color: "#6201ee",
+            type:"column",
+            data:data[1]
+          }
+          ],
+          credits:{
+            enabled:false
+          }
+      });
+    }
+
+    function createHighCharts4(data){
+      Highcharts.chart("chart4",{
+        title:{
+          text: "Number of errors"
+        },
+        
+        xAxis:[
+          {
+            categories:data[0],
+            labels:{
+              rotation: -45
+            }
+          }
+        ],
+        yAxis:[
+          {
+            title:{
+              text: "Total"
+            }
+          }
+        ],
+        series:[
+          {
+            name: "Errors",
+            color: "#e47a3c",
+            type:"column",
+            data:data[1]
+          }
+          ],
+          credits:{
+            enabled:false
+          }
+      });
+    }
+
+    function createHighCharts5(data){
+      Highcharts.chart("chart5",{
+        title:{
+          text: "Times to Run"
+        },
+        subtitle:{
+          text: ""
+        },
+        xAxis:[
+          {
+            categories:data[0],
+            labels:{
+              rotation: -45
+            }
+          }
+        ],
+        yAxis:[
+          {
+            title:{
+              text: "Milliseconds"
+            }
+          }
+        ],
+        series:[
+          {
+            name: "Time",
+            color: "#33ce87",
+            type:"column",
+            data:data[1]
+          }
+          ],
+          credits:{
+            enabled:false
+          }
+      });
+    }
+
+
+
+    function createHighCharts10(data){
+      Highcharts.chart("chart10",{
+        title:{
+          text: "Total Items Scrapped"
+        },
+        
+        xAxis:[
+          {
+            categories:data[0],
+            labels:{
+              rotation: -45
+            }
+          }
+        ],
+        yAxis:[
+          {
+            title:{
+              text: "Total"
+            }
+          }
+        ],
+        series:[
+          {
+            name: "Items",
+            color: "#0071A7",
+            type:"column",
+            data:data[1]
+          }
+          ],
+          credits:{
+            enabled:false
+          }
+      });
+    }
+
+    function createHighCharts20(data){
+      Highcharts.chart("chart20",{
+        title:{
+          text: "New Items Scrapped"
+        },
+        xAxis:[
+          {
+            categories:data[0],
+            labels:{
+              rotation: -45
+            }
+          }
+        ],
+        yAxis:[
+          {
+            title:{
+              text: "Total"
+            }
+          }
+        ],
+        series:[
+          {
+            name: "Items",
+            color: "#29c0b1",
+            type:"column",
+            data:data[1]
+          }
+          ],
+          credits:{
+            enabled:false
+          }
+      });
+    }
+
+    function createHighCharts30(data){
+      Highcharts.chart("chart30",{
+        title:{
+          text: "Updated Items Scrapped"
+        },
+        
+        xAxis:[
+          {
+            categories:data[0],
+            labels:{
+              rotation: -45
+            }
+          }
+        ],
+        yAxis:[
+          {
+            title:{
+              text: "Total"
+            }
+          }
+        ],
+        series:[
+          {
+            name: "Items",
+            color: "#6201ee",
+            type:"column",
+            data:data[1]
+          }
+          ],
+          credits:{
+            enabled:false
+          }
+      });
+    }
+
+    function createHighCharts40(data){
+      Highcharts.chart("chart40",{
+        title:{
+          text: "Number of errors"
+        },
+        
+        xAxis:[
+          {
+            categories:data[0],
+            labels:{
+              rotation: -45
+            }
+          }
+        ],
+        yAxis:[
+          {
+            title:{
+              text: "Total"
+            }
+          }
+        ],
+        series:[
+          {
+            name: "Errors",
+            color: "#e47a3c",
+            type:"column",
+            data:data[1]
+          }
+          ],
+          credits:{
+            enabled:false
+          }
+      });
+    }
+
+    function createHighCharts50(data){
+      Highcharts.chart("chart50",{
+        title:{
+          text: "Times to Run"
+        },
+        subtitle:{
+          text: ""
+        },
+        xAxis:[
+          {
+            categories:data[0],
+            labels:{
+              rotation: -45
+            }
+          }
+        ],
+        yAxis:[
+          {
+            title:{
+              text: "Milliseconds"
+            }
+          }
+        ],
+        series:[
+          {
+            name: "Time",
+            color: "#33ce87",
+            type:"column",
+            data:data[1]
+          }
+          ],
+          credits:{
+            enabled:false
+          }
+      });
+    }
+    
+    let draw =false;
+    function setTableEvents(table){
+      table.on("page",()=>{
+        draw=true;
+      });
+      table.on("draw",()=>{
+        if(draw){
+          draw = false;
+        }
+        else
+        {
+          const tableData=getTableData(table);
+          createHighCharts(tableData);
+          const tableData2=getTableData2(table);
+          createHighCharts2(tableData2);
+          const tableData3=getTableData3(table);
+          createHighCharts3(tableData3);
+          const tableData4=getTableData4(table);
+          createHighCharts4(tableData4);
+          const tableData5=getTableData5(table);
+          createHighCharts5(tableData5);
+
+          const tableData10=getTableData10(table);
+          createHighCharts10(tableData10);
+          const tableData20=getTableData20(table);
+          createHighCharts20(tableData20);
+          const tableData30=getTableData30(table);
+          createHighCharts30(tableData30);
+          const tableData40=getTableData40(table);
+          createHighCharts40(tableData40);
+          const tableData50=getTableData50(table);
+          createHighCharts50(tableData50);
+          
+        }
+      })
+
+      
+    $("#filtrovendor").keyup(function(){
+      table.column($(this).data('index')).search(this.value).draw();
+    })
+
+    $("#btnLimpiarBusqueda").on('click',function(){
+
+    $("#filtrovendor").val('')
+
+    table.search('').columns().search('').draw();
+    })
+
+    }
+  </script>
+
+
+<script>
+    $(document).ready(function() {
+      $('#tableprodimport thead tr')
+          
+          .appendTo('#tableprodimport thead');
+      
+      var table = $('#tableprodimport').DataTable({
+        "createdRow":function(row,data,index){                   
+                 //pintar una celda
+                 if(data[10] == "Match" ){
+
+                  $('td', row).css({
+                         'background-color':'#EAEDED',
+                         'color':'black',
+                         'border-style':'solid',
+                         'border-color':'#bdbdbd' 
+                     });
+                 } else if(data[10] == "SoleSource"){
+                  $('td', row).css({
+                         'background-color':'#F4F6F6 ',
+                         'color':'black',
+                         'border-style':'solid',
+                         'border-color':'#bdbdbd' 
+                     });
+                 }
+             },
+      paging: true,
+      pageLength: 10,
+      lengthChange: true,
+      autoWidth: true,
+      searching: true,
+      bInfo: true,
+      bSort: true,
+      responsive: true,
+      scrollX: true,
+      
+        columnDefs: [ {
+        targets: [1, 2, 3, 4, 5, 6, 7, 8],
+        render: function (value) {
+        if (value.length > 20) return value.substr(0, 20) + '...';
+        return value;
+         }
+     } ],
+
+  
+      
+        dom: 'lBfrtip',
+        buttons: [
+          {
+                extend: 'copy',
+                text: '<i class="fas fa-clone"></i>',
+                className: 'btn btn-secondary',
+                titleAttr: 'Copy',
+                exportOptions: {
+                    columns: [1, 2, 3, 4, 5, 6, 7, 8]
+            },
+          },
+          {
+                extend: 'excel',
+                text: '<i class="fas fa-file-excel"></i>',
+                className: 'btn btn-secondary',
+                titleAttr: 'Excel',
+                exportOptions: {
+                    columns: [1, 2, 3, 4, 5, 6, 7, 8]
+            },
+          },
+          {
+                extend: 'print',
+                text: '<i class="fas fa-print"></i>',
+                className: 'btn btn-secondary',
+                titleAttr: 'Print',
+                exportOptions: {
+                    columns: [1, 2, 3, 4, 5, 6, 7, 8]
+            },
+                customize: function ( win ) {
+                    $(win.document.body).ccs('font-size', '10pt')
+                    $(win.document.body).find('table')
+                        .addClass('compact')
+                        .css('font-size', 'inherit');
+            }
+          },
+          {
+                extend: 'pdf',
+                text: '<i class="fas fa-file-pdf"></i>',
+                className: 'btn btn-secondary',
+                titleAttr: 'PDF',
+  
+                exportOptions: {
+                    columns: [1, 2, 3, 4, 5, 6, 7, 8]
+                },
+  
+                tableHeader: {
+                    alignment: 'center'
+                },
+  
+                customize: function (doc) {
+                    doc.styles.tableHeader.alignment = 'center';
+                    doc.styles.tableBodyOdd.alignment = 'center';
+                    doc.styles.tableBodyEven.alignment = 'center';
+                    doc.styles.tableHeader.fontSize = 9;
+                    doc.defaultStyle.fontSize = 6;
+                    
+                    doc.content[1].table.widths = Array(doc.content[1].table.body[1].length + 1).join('*').split('');
+                }
+            
+          },
+        ]
+  
+      });
+
+      
+
+
+      $("#filtrosku").keyup(function(){
+       table.column($(this).data('index')).search(this.value).draw();
+     })
+
+     $("#filtroupc").keyup(function(){
+       table.column($(this).data('index')).search(this.value).draw();
+     })
+
+     $("#filtromodelnumber").keyup(function(){
+       table.column($(this).data('index')).search(this.value).draw();
+     })
+
+     $("#filtroname").keyup(function(){
+       table.column($(this).data('index')).search(this.value).draw();
+     })
+
+     $("#type").keyup(function(){
+       table.column($(this).data('index')).search(this.value).draw();
+     })
+
+     $("#manufacturer").keyup(function(){
+       table.column($(this).data('index')).search(this.value).draw();
+     })
+
+     $("#btnLimpiarBusqueda").on('click',function(){
+
+      $("#filtrosku").val('')
+      $("#filtroupc").val('')
+      $("#filtromodelnumber").val('')
+      $("#filtroname").val('')
+      $("#type").val('')
+      $("#manufacturer").val('')
+
+      table.search('').columns().search('').draw();
+     })
+
+     
+    });
+  
+
+  </script>
+
+
+<script>
+  $(document).ready(function() {
+    $('#tablematchedit thead tr')
+        
+        .appendTo('#tablematchedit thead');
+    
+    var table = $('#tablematchedit').DataTable({
+      "createdRow":function(row,data,index){                   
+               //pintar una celda
+               if(data[8] == "Match" ){
+
+                $('td', row).css({
+                       'background-color':'#EAEDED',
+                       'color':'black',
+                       'border-style':'solid',
+                       'border-color':'#bdbdbd' 
+                   });
+               } else if(data[8] == "SoleSource"){
+                $('td', row).css({
+                       'background-color':'#F4F6F6 ',
+                       'color':'black',
+                       'border-style':'solid',
+                       'border-color':'#bdbdbd' 
+                   });
+               }
+           },
+    paging: true,
+    pageLength: 10,
+    lengthChange: true,
+    autoWidth: true,
+    searching: true,
+    bInfo: true,
+    bSort: true,
+    responsive: true,
+    scrollX: true,
+    scrollY: true,
+    
+    order: [7],
+   
+    
+    
+    columnDefs: [ {
+      width: 300,
+        targets: [5,6],
+        render: function (value) {
+        if (value.length > 25) return value.substr(0, 80) + '...';
+        return value;
+         }
+     } ],
+
+
+    
+      dom: 'lBfrtip',
+      buttons: [
+        {
+              extend: 'copy',
+              text: '<i class="fas fa-clone"></i>',
+              className: 'btn btn-secondary',
+              titleAttr: 'Copy',
+              exportOptions: {
+                  columns: [1, 2, 3, 4, 5, 6, 7, 8]
+          },
+        },
+        {
+              extend: 'excel',
+              text: '<i class="fas fa-file-excel"></i>',
+              className: 'btn btn-secondary',
+              titleAttr: 'Excel',
+              exportOptions: {
+                  columns: [1, 2, 3, 4, 5, 6, 7, 8]
+          },
+        },
+        {
+              extend: 'print',
+              text: '<i class="fas fa-print"></i>',
+              className: 'btn btn-secondary',
+              titleAttr: 'Print',
+              exportOptions: {
+                  columns: [1, 2, 3, 4, 5, 6, 7, 8]
+          },
+              customize: function ( win ) {
+                  $(win.document.body).ccs('font-size', '10pt')
+                  $(win.document.body).find('table')
+                      .addClass('compact')
+                      .css('font-size', 'inherit');
+          }
+        },
+        {
+              extend: 'pdf',
+              text: '<i class="fas fa-file-pdf"></i>',
+              className: 'btn btn-secondary',
+              titleAttr: 'PDF',
+
+              exportOptions: {
+                  columns: [1, 2, 3, 4, 5, 6, 7, 8]
+              },
+
+              tableHeader: {
+                  alignment: 'center'
+              },
+
+              customize: function (doc) {
+                  doc.styles.tableHeader.alignment = 'center';
+                  doc.styles.tableBodyOdd.alignment = 'center';
+                  doc.styles.tableBodyEven.alignment = 'center';
+                  doc.styles.tableHeader.fontSize = 9;
+                  doc.defaultStyle.fontSize = 6;
+                  
+                  doc.content[1].table.widths = Array(doc.content[1].table.body[1].length + 1).join('*').split('');
+              }
+          
+        },
+      ]
+
+    });
+
+    
+    $("#filtrocategory").keyup(function(){
+      table.column($(this).data('index')).search(this.value).draw();
+    })
+
+    $("#filtrosku").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#filtroupc").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#filtromodelnumber").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#filtroname").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#type").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#manufacturer").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#filtrodescripcion").keyup(function(){
+    table.column($(this).data('index')).search(this.value).draw();
+  })
+
+   $("#btnLimpiarBusqueda").on('click',function(){
+
+    $("#filtrosku").val('')
+    $("#filtroupc").val('')
+    $("#filtromodelnumber").val('')
+    $("#filtroname").val('')
+    $("#type").val('')
+    $("#manufacturer").val('')
+    $("#filtrodescripcion").val('')
+
+    table.search('').columns().search('').draw();
+   })
+
+   
+  });
+
+
+</script>
+
+<script>
+  $(document).ready(function() {
+    $('#tablematchedit2 thead tr')
+        
+        .appendTo('#tablematchedit2 thead');
+    
+    var table = $('#tablematchedit2').DataTable({
+      "createdRow":function(row,data,index){                   
+               //pintar una celda
+               if(data[8] == "Match" ){
+
+                $('td', row).css({
+                       'background-color':'#EAEDED',
+                       'color':'black',
+                       'border-style':'solid',
+                       'border-color':'#bdbdbd' 
+                   });
+               } else if(data[8] == "SoleSource"){
+                $('td', row).css({
+                       'background-color':'#F4F6F6 ',
+                       'color':'black',
+                       'border-style':'solid',
+                       'border-color':'#bdbdbd' 
+                   });
+               }
+           },
+    paging: true,
+    pageLength: 10,
+    lengthChange: true,
+    autoWidth: true,
+    searching: true,
+    bInfo: true,
+    bSort: true,
+    responsive: true,
+    scrollX: true,
+    scrollY: true,
+    
+    order: [7],
+   
+    
+    
+    columnDefs: [ {
+      width: 300,
+        targets: [6,7],
+        render: function (value) {
+        if (value.length > 25) return value.substr(0, 80) + '...';
+        return value;
+         }
+     } ],
+
+
+    
+      dom: 'lBfrtip',
+      buttons: [
+        {
+              extend: 'copy',
+              text: '<i class="fas fa-clone"></i>',
+              className: 'btn btn-secondary',
+              titleAttr: 'Copy',
+              exportOptions: {
+                  columns: [1, 2, 3, 4, 5, 6, 7, 8]
+          },
+        },
+        {
+              extend: 'excel',
+              text: '<i class="fas fa-file-excel"></i>',
+              className: 'btn btn-secondary',
+              titleAttr: 'Excel',
+              exportOptions: {
+                  columns: [1, 2, 3, 4, 5, 6, 7, 8]
+          },
+        },
+        {
+              extend: 'print',
+              text: '<i class="fas fa-print"></i>',
+              className: 'btn btn-secondary',
+              titleAttr: 'Print',
+              exportOptions: {
+                  columns: [1, 2, 3, 4, 5, 6, 7, 8]
+          },
+              customize: function ( win ) {
+                  $(win.document.body).ccs('font-size', '10pt')
+                  $(win.document.body).find('table')
+                      .addClass('compact')
+                      .css('font-size', 'inherit');
+          }
+        },
+        {
+              extend: 'pdf',
+              text: '<i class="fas fa-file-pdf"></i>',
+              className: 'btn btn-secondary',
+              titleAttr: 'PDF',
+
+              exportOptions: {
+                  columns: [1, 2, 3, 4, 5, 6, 7, 8]
+              },
+
+              tableHeader: {
+                  alignment: 'center'
+              },
+
+              customize: function (doc) {
+                  doc.styles.tableHeader.alignment = 'center';
+                  doc.styles.tableBodyOdd.alignment = 'center';
+                  doc.styles.tableBodyEven.alignment = 'center';
+                  doc.styles.tableHeader.fontSize = 9;
+                  doc.defaultStyle.fontSize = 6;
+                  
+                  doc.content[1].table.widths = Array(doc.content[1].table.body[1].length + 1).join('*').split('');
+              }
+          
+        },
+      ]
+
+    });
+
+    
+    $("#filtrocategory2").keyup(function(){
+      table.column($(this).data('index')).search(this.value).draw();
+    })
+
+    $("#filtrosku2").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#filtroupc2").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#filtromodelnumber2").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#filtroname2").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#type2").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#manufacturer2").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#filtrodescripcion2").keyup(function(){
+    table.column($(this).data('index')).search(this.value).draw();
+  })
+
+   $("#btnLimpiarBusqueda2").on('click',function(){
+
+    $("#filtrosku2").val('')
+    $("#filtroupc2").val('')
+    $("#filtromodelnumber2").val('')
+    $("#filtroname2").val('')
+    $("#type2").val('')
+    $("#manufacturer2").val('')
+    $("#filtrodescripcion2").val('')
+
+    table.search('').columns().search('').draw();
+   })
+
+   
+  });
+
+
+</script>
+
+<script>
+  $(document).ready(function() {
+    
+    $('#productmaster thead tr')
+        
+        .appendTo('#productmaster thead');
+    
+    var table = $('#productmaster').DataTable({
+ 
+    paging: true,
+    pageLength: 10,
+    lengthChange: true,
+    autoWidth: true,
+    searching: true,
+    bInfo: true,
+    bSort: true,
+    responsive: true,
+    scrollX: true,
+    serverside: true,
+   
+      
+
+    });
+
+  
+    $("#filtrosku").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#filtroupc").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#filtromodelnumber").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#filtroname").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#type").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#manufacturer").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#btnLimpiarBusqueda").on('click',function(){
+
+    $("#filtrosku").val('')
+    $("#filtroupc").val('')
+    $("#filtromodelnumber").val('')
+    $("#filtroname").val('')
+    $("#type").val('')
+    $("#manufacturer").val('')
+
+    table.search('').columns().search('').draw();
+   })
+
+   
+  });
+
+
+</script>
+
+
+
+<script>
+  $(document).ready(function() {
+    $('#tablesingleday thead tr')
+        
+        
+        .appendTo('#tablesingleday thead');
+        
+    var table = $('#tablesingleday').DataTable({
+      paging: true,
+      pageLength: 10,
+      lengthChange: true,
+      autoWidth: true,
+      searching: true,
+      bInfo: true,
+      bSort: true,
+      responsive: true,
+      scrollX: true,
+      
+      "drawCallback":function(){
+                      //alert("La tabla se está recargando"); 
+                      var api = this.api();
+                      $(api.column(2).footer()).html(
+                        api.column(2, {page:'current'}).data().sum()
+                      )
+                      $(api.column(3).footer()).html(
+                        api.column(3, {page:'current'}).data().sum()
+                      )
+                      $(api.column(4).footer()).html(
+                        api.column(4, {page:'current'}).data().sum()
+                      )
+                      $(api.column(5).footer()).html(
+                        api.column(5, {page:'current'}).data().sum()
+                      )
+                      $(api.column(6).footer()).html(
+                        api.column(6, {page:'current'}).data().sum()
+                      )
+                      
+                      
+                },
+
+      
+
+      dom: 'lBfrtip',
+      buttons: [
+        {
+              extend: 'copy',
+              text: '<i class="fas fa-clone"></i>',
+              className: 'btn btn-dark',
+              titleAttr: 'Copy',
+              exportOptions: {
+                  columns: [0, 1, 2, 3, 4, 5, 6]
+          },
+        },
+        {
+              extend: 'excel',
+              text: '<i class="fas fa-file-excel"></i>',
+              className: 'btn btn-secondary',
+              titleAttr: 'Excel',
+              exportOptions: {
+                  columns: [0, 1, 2, 3, 4, 5, 6]
+          },
+        },
+        {
+              extend: 'print',
+              text: '<i class="fas fa-print"></i>',
+              className: 'btn btn-dark',
+              titleAttr: 'Print',
+              exportOptions: {
+                  columns: [0, 1, 2, 3, 4, 5, 6]
+          },
+              customize: function ( win ) {
+                  $(win.document.body).ccs('font-size', '10pt')
+                  $(win.document.body).find('table')
+                      .addClass('compact')
+                      .css('font-size', 'inherit');
+          }
+        },
+        {
+              extend: 'pdf',
+              text: '<i class="fas fa-file-pdf"></i>',
+              className: 'btn btn-secondary',
+              titleAttr: 'PDF',
+
+              exportOptions: {
+                  columns: [0, 1, 2, 3, 4, 5, 6]
+              },
+
+              tableHeader: {
+                  alignment: 'center'
+              },
+
+              customize: function (doc) {
+                  doc.styles.tableHeader.alignment = 'center';
+                  doc.styles.tableBodyOdd.alignment = 'center';
+                  doc.styles.tableBodyEven.alignment = 'center';
+                  doc.styles.tableHeader.fontSize = 9;
+                  doc.defaultStyle.fontSize = 6;
+                  
+                  doc.content[1].table.widths = Array(doc.content[1].table.body[1].length + 1).join('*').split('');
+              }
+          
+        },
+      ]
+
+    });
+    $("#filtrodate").keyup(function(){
+      
+       table.column($(this).data('index')).search(this.value).draw();
+     })
+
+     $("#filtrovendor").keyup(function(){
+       table.column($(this).data('index')).search(this.value).draw();
+     })
+
+
+    $("#btnLimpiarBusqueda").on('click',function(){
+
+      $("#filtrodate").val('')
+      $("#filtrovendor").val('')
+
+
+      table.search('').columns().search('').draw();
+      })
+      }); 
+
+  
+</script>
+
+
+
+<script>
+  $(document).ready(function() {
+    $('#tablemultiday thead tr')
+      
+        
+        .appendTo('#tablemultiday thead');
+        
+    var table = $('#tablemultiday').DataTable({
+        "ajax": "/json",
+        "columns": [
+            
+            {"data": "VendorName"},
+            {"data": "Timestamp"},
+            {"data": "TotalTime"},
+            {"data": "TotalItems"},
+            {"data": "NewItems"},
+            {"data": "UpdatedItems"},
+            {"data": "Errors"},
+        ],
+      paging: true,
+      pageLength: 10,
+      lengthChange: true,
+      autoWidth: true,
+      searching: true,
+      bInfo: true,
+      bSort: true,
+      responsive: true,
+      scrollX: true,
+      
+    
+
+      dom: 'lBfrtip',
+      buttons: [
+        {
+              extend: 'copy',
+              text: '<i class="fas fa-clone"></i>',
+              className: 'btn btn-dark',
+              titleAttr: 'Copy',
+              exportOptions: {
+                  columns: [0, 1, 2, 3, 4, 5, 6]
+          },
+        },
+        {
+              extend: 'excel',
+              text: '<i class="fas fa-file-excel"></i>',
+              className: 'btn btn-secondary',
+              titleAttr: 'Excel',
+              exportOptions: {
+                  columns: [0, 1, 2, 3, 4, 5, 6]
+          },
+        },
+        {
+              extend: 'print',
+              text: '<i class="fas fa-print"></i>',
+              className: 'btn btn-dark',
+              titleAttr: 'Print',
+              exportOptions: {
+                  columns: [0, 1, 2, 3, 4, 5, 6]
+          },
+              customize: function ( win ) {
+                  $(win.document.body).ccs('font-size', '10pt')
+                  $(win.document.body).find('table')
+                      .addClass('compact')
+                      .css('font-size', 'inherit');
+          }
+        },
+        {
+              extend: 'pdf',
+              text: '<i class="fas fa-file-pdf"></i>',
+              className: 'btn btn-secondary',
+              titleAttr: 'PDF',
+
+              exportOptions: {
+                  columns: [0, 1, 2, 3, 4, 5, 6]
+              },
+
+              tableHeader: {
+                  alignment: 'center'
+              },
+
+              customize: function (doc) {
+                  doc.styles.tableHeader.alignment = 'center';
+                  doc.styles.tableBodyOdd.alignment = 'center';
+                  doc.styles.tableBodyEven.alignment = 'center';
+                  doc.styles.tableHeader.fontSize = 9;
+                  doc.defaultStyle.fontSize = 6;
+                  
+                  doc.content[1].table.widths = Array(doc.content[1].table.body[1].length + 1).join('*').split('');
+              }
+          
+        },
+      ]
+
+    });
+    $("#filtrodate").keyup(function(){
+      
+       table.column($(this).data('index')).search(this.value).draw();
+     })
+
+     $("#filtrovendor").keyup(function(){
+       table.column($(this).data('index')).search(this.value).draw();
+     })
+
+
+    $("#btnLimpiarBusqueda").on('click',function(){
+
+      $("#filtrodate").val('')
+      $("#filtrovendor").val('')
+
+
+      table.search('').columns().search('').draw();
+      })
+      }); 
+
+  
+</script>
+
+
+
+  <script>
+    (function pulse(){
+        $('.text-pulse').fadeOut(1500).fadeIn(1500, pulse);
+    })();
+
+  </script>
+
+  <script>
+    function myFunction() {
+        var p = document.getElementById("password");
+        if (p.type == "password") {
+            p.type = "text"
+        }
+        else {
+            p.type = "password"
+        }
+    }
+  </script>
+
+<script>
+  $(document).ready(function(){
+      var tabla = $("#detailproduct").DataTable({
+             "createdRow":function(row,data,index){                   
+                 //pintar una celda
+                 if(data[10] == "Match" ){
+
+                  $('td', row).css({
+                         'background-color':'#ff5252',
+                         'color':'white',
+                         'border-style':'solid',
+                         'border-color':'#bdbdbd' 
+                     });
+                 }
+             },
+              
+              
+      });
+
+      $("#filtrosku").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#filtroupc").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#filtromodelnumber").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#filtroname").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#type").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#manufacturer").keyup(function(){
+     table.column($(this).data('index')).search(this.value).draw();
+   })
+
+   $("#btnLimpiarBusqueda").on('click',function(){
+
+    $("#filtrosku").val('')
+    $("#filtroupc").val('')
+    $("#filtromodelnumber").val('')
+    $("#filtroname").val('')
+    $("#type").val('')
+    $("#manufacturer").val('')
+
+    table.search('').columns().search('').draw();
+   })
+
+   
+  });
+  </script>
+  {% csrf_token %}
+  
+<script>
+  $(document).ready(function() {
+      $('#btnmatchproduct').click(function() {
+          if(confirm("Are you sure MATCH this products?")){
+              var id =[];
+              var csrf=$('input[name=csrfmiddlewaretoken]').val();
+              $(':checkbox:checked').each(function(i){
+              id[i]=$(this).val()
+              })
+              if(id.length===0){
+                  alert("Please select a product for the MATCH")
+              }else if(id.length < 2){
+                  alert("Please select at least two products for the MATCH")
+              }else{
+              console.log(id)
+              url = "matchproduct"
+                  $.ajax({
+                  url: url,
+                  method:"POST",
+                  data:{
+                      id,
+                      csrfmiddlewaretoken:csrf
+                  },
+                  success:function(response){
+                      for(var i=0; i < id.length; i++) {
+                      $('tr#'+id[i]+'').css('background-color', '#ccc');
+                      $('tr#'+id[i]+'').fadeOut('slow');
+                      location.reload();
+                  }
+                  }
+                  })
+              }
+          }
+      })
+      })
+</script>
+<script>
+  $(document).ready(function() {
+      $('#btnunmatched').click(function() {
+          if(confirm("Are you sure UNMATCH this products?")){
+              var id =[];
+              var csrf=$('input[name=csrfmiddlewaretoken]').val();
+              $(':checkbox:checked').each(function(i){
+              id[i]=$(this).val()
+              })
+              if(id.length===0){
+                  alert("Please select a product for the UNMATCH")
+              }else if(id.length < 2){
+                  alert("Please select at least two products for the UNMATCH")
+              }else{
+              console.log(id)
+              url = "unmatched"
+                  $.ajax({
+                  url: url,
+                  method:"POST",
+                  data:{
+                      id,
+                      csrfmiddlewaretoken:csrf
+                  },
+                  success:function(response){
+                      for(var i=0; i < id.length; i++) {
+                      $('tr#'+id[i]+'').css('background-color', '#ccc');
+                      $('tr#'+id[i]+'').fadeOut('slow');
+                      location.reload();
+                  }
+                  }
+                  })
+              }
+          }
+      })
+      })
+</script>
+<script>
+  $(document).ready(function() {
+      $('#btndelmatch').click(function() {
+          if(confirm("Are you sure DELETE this products?")){
+              var id =[];
+              var csrf=$('input[name=csrfmiddlewaretoken]').val();
+              $(':checkbox:checked').each(function(i){
+              id[i]=$(this).val()
+              })
+              if(id.length===0){
+                  alert("Please select a product for the DELETE")
+              }else{
+              console.log(id)
+              url = "delmatch"
+                  $.ajax({
+                  url: url,
+                  method:"POST",
+                  data:{
+                      id,
+                      csrfmiddlewaretoken:csrf
+                  },
+                  success:function(response){
+                      for(var i=0; i < id.length; i++) {
+                      $('tr#'+id[i]+'').css('background-color', '#ccc');
+                      $('tr#'+id[i]+'').fadeOut('slow');
+                      location.reload();
+                  }
+                  }
+                  })
+              }
+          }
+      })
+      })
+</script>
+<script>
+  $(document).ready(function() {
+      $('#btnmatchunmach').click(function() {
+          if(confirm("Are you sure MATCH this products?")){
+              var id =[];
+              var csrf=$('input[name=csrfmiddlewaretoken]').val();
+              $(':checkbox:checked').each(function(i){
+              id[i]=$(this).val()
+              })
+              if(id.length===0){
+                  alert("Please select a product for the MATCH")
+              }else if(id.length < 2){
+                  alert("Please select at least two products for the MATCH")
+              }else{
+              console.log(id)
+              url = "matchunmach"
+                  $.ajax({
+                  url: url,
+                  method:"POST",
+                  data:{
+                      id,
+                      csrfmiddlewaretoken:csrf
+                  },
+                  success:function(response){
+                      for(var i=0; i < id.length; i++) {
+                      $('tr#'+id[i]+'').css('background-color', '#ccc');
+                      $('tr#'+id[i]+'').fadeOut('slow');
+                      location.reload();
+                  }
+                  }
+                  })
+              }
+          }
+      })
+      })
+</script>
+<script>
+  $(document).ready(function() {
+      $('#btnunmatchunmatch').click(function() {
+          if(confirm("Are you sure UNMATCH this products?")){
+              var id =[];
+              var csrf=$('input[name=csrfmiddlewaretoken]').val();
+              $(':checkbox:checked').each(function(i){
+              id[i]=$(this).val()
+              })
+              if(id.length===0){
+                  alert("Please select a product for the UNMATCH")
+              }else if(id.length < 2){
+                  alert("Please select at least two products for the UNMATCH")
+              }else{
+              console.log(id)
+              url = "unmatchunmatch"
+                  $.ajax({
+                  url: url,
+                  method:"POST",
+                  data:{
+                      id,
+                      csrfmiddlewaretoken:csrf
+                  },
+                  success:function(response){
+                      for(var i=0; i < id.length; i++) {
+                      $('tr#'+id[i]+'').css('background-color', '#ccc');
+                      $('tr#'+id[i]+'').fadeOut('slow');
+                      location.reload();
+                  }
+                  }
+                  })
+              }
+          }
+      })
+      })
+</script>
+<script>
+  $(document).ready(function() {
+      $('#btnreturnunmaches').click(function() {
+          if(confirm("Are you sure RETURN this products?")){
+              var id =[];
+              var csrf=$('input[name=csrfmiddlewaretoken]').val();
+              $(':checkbox:checked').each(function(i){
+              id[i]=$(this).val()
+              })
+              if(id.length===0){
+                  alert("Please select a product for the RETURN")
+              }else{
+              console.log(id)
+              url = "returnunmaches"
+                  $.ajax({
+                  url: url,
+                  method:"POST",
+                  data:{
+                      id,
+                      csrfmiddlewaretoken:csrf
+                  },
+                  success:function(response){
+                      for(var i=0; i < id.length; i++) {
+                      $('tr#'+id[i]+'').css('background-color', '#ccc');
+                      $('tr#'+id[i]+'').fadeOut('slow');
+                      location.reload();
+                  }
+                  }
+                  })
+              }
+          }
+      })
+      })
+</script>
+<script>
+  $(document).ready(function() {
+      $('#btnview').click(function() {
+          if(confirm("Are you sure RETURN this products?")){
+              var id =[];
+              var csrf=$('input[name=csrfmiddlewaretoken]').val();
+              $(':checkbox:checked').each(function(i){
+              id[i]=$(this).val()
+              })
+              if(id.length===0){
+                  alert("Please select a product for the RETURN")
+              }else{
+              console.log(id)
+              url = "viewmatch"
+                  $.ajax({
+                  url: url,
+                  method:"POST",
+                  data:{
+                      id,
+                      csrfmiddlewaretoken:csrf
+                  },
+                  success:function(response){
+                      for(var i=0; i < id.length; i++) {
+                      $('tr#'+id[i]+'').css('background-color', '#ccc');
+                      $('tr#'+id[i]+'').fadeOut('slow');
+                    
+                  }
+                  }
+                  })
+              }
+          }
+      })
+      })
+</script>
+
+
+
+
+</body>
+</html>

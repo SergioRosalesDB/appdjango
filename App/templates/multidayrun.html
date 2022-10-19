@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+
+{% block title %} Single day run {% endblock %}
+
+{% block navbar-content %} 
+<i style="color: yellowgreen;" class="fas fa-user-alt"></i>&nbsp;&nbsp; Multi day run
+
+{% endblock navbar-content %}
+
+{% block content %}
+
+<div class="container">
+    
+    <br>
+
+    <div class="row" >
+        <div class="col-lg-12">
+            <div class="card card-info" >
+                <div class="card-header d-lg-flex">
+                    <h4 class="col-lg-3 card-title" >VENDOR FILTER</h4>
+                   
+                    <div  class="col-lg-8 form-floating mx-1 my-1">
+                        <input 
+                            type="input"
+                            list="vendor" 
+                            id="filtrovendor"
+                            class="form-control"
+                            placeholder="Search Vendor"
+                            data-index="0">
+                            <datalist id="vendor">
+                                <option value="Best Buy"></option>
+                                <option value="Lowes"></option>
+                                <option value="Home Depot"></option>
+                            </datalist>
+                        <label for="filtrovendor">Search for Vendor</label>
+                    </div>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="reset" class="btn btn-outline-dark mb-3 ms-2" id="btnLimpiarBusqueda">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                    
+                </div>
+               
+            </div>
+        </div>
+        
+       
+ 
+    </div>
+
+    <table class="table table-bordered" id="tabledate" style="text-align: center;">
+        <thead class="table-success">
+            <br>
+            <tr>
+                <th>Vendor Name</th>
+                <th>Run Finish TimeStamp</th>
+                <th>Time to Run</th>
+                <th>Total Items Scrapped</th>
+                <th>New Items Scrapped</th>
+                <th>Updated Items Scrapped</th>
+                <th>Number of Errors</th>
+                
+            </tr>
+        </thead>
+        
+        
+
+
+
+    </table>
+
+</div>
+
+
+
+<br>
+
+
+<div class="modal fade" id="edicion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+</div>
+
+<div class="container">
+    
+
+    <div class="row" >
+        <div class="col-lg-12">
+            <div class="card card-info" >
+                
+                <div class="card-body"  id="minimizar">
+                    <div class="row" >
+                        
+                            <div class="col-lg-12 d-lg-flex">
+
+                            </div>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .carousel-item {
+                height: 25%;
+                background: rgba(37, 36, 36, 0.068);
+            }
+            
+            .carousel-control-prev {
+                background-color: #0f0f0f02;
+            }
+            .carousel-control-prev-icon {
+                background-color: #0f0f0f27;
+            }
+            .carousel-control-next {
+                background-color: #0f0f0f02;
+            }
+            .carousel-control-next-icon {
+                background-color: #0f0f0f27;
+            }
+            
+            
+        </style>
+        
+        <div id="myCarousel" class="carousel slide"
+        data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel"
+            data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel"
+            data-slide-to="1"></li>
+        </ol>
+        
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container" id="chart">
+                </div>
+            </div>
+            <div class="carousel-item ">
+                <div class="container" id="chart2">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container" id="chart3">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container" id="chart4">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container" id="chart5">
+                </div>
+            </div>
+        </div>
+        <a href="#myCarousel" 
+        class="carousel-control-prev" role="button"
+        data-slide="prev">
+         <span class="sr-only">Previos</span>
+         <span class="carousel-control-prev-icon"
+         aria-hidden="true"></span>
+        </a>
+        <a href="#myCarousel" 
+        class="carousel-control-next" role="button"
+        data-slide="next">
+         <span class="sr-only">Previos</span>
+         <span class="carousel-control-next-icon"
+         aria-hidden="true"></span>
+        </a>
+        
+        </div>
+        <h1><br></h1>
+
+
+
+        
+        
+        <div class="col-lg-6" id="chart10"></div>
+<div class="col-lg-6" id="chart20"></div>
+<div class="col-lg-6" id="chart30"></div>
+<div class="col-lg-6" id="chart40"></div>
+<div id="chart50"></div>
+ 
+    </div>
+
+<style>
+.table thead, .table tfoot{
+    background-color: #0890ca25;
+   
+}
+</style>
+
+{% block extrajs %}
+<script type="text/javascript">
+    var $ = jQuery.noConflict();
+    function abrir_modal_edicion(url){
+        $('#edicion').load(url, function (){
+            $(this).modal('show');
+        });
+    }
+</script>
+
+{% endblock extrajs %}
+
+<script>
+    function showminimizar(){
+        document.getElementById('minimizar').style.display='none';
+    }
+
+    function showmaximizar(){
+        document.getElementById('minimizar').style.display='block';
+    }
+</script>
+
+
+
+{% endblock content %}
+
